@@ -74,7 +74,7 @@ stack_status stack_push(stack_lifo_t* stk, stack_elem_t value, int line)
     #ifdef STK_VERIFY_ON
         if ((err = stack_verify(stk)) != SUCCESS)
         {
-            fprintf(file, "Stack_push enter error in (%s)%s:%d ; ", __func__, __FILE__, line);
+            fprintf(file, "Stack_push enter error in (%s)%s:%d ;\n", __func__, __FILE__, line);
             if ((error & STK_DATA_PTR_NULL) == STK_DATA_PTR_NULL)
                 fprintf(file, "\tPossibly forgotten to assign a new pointer after realloc\n");
 
@@ -357,17 +357,17 @@ stack_status stack_dump(stack_lifo_t* stk, int line)
     {
         if (is_equal(stk -> data[i], POISON_ELEM))
         {
-            fprintf(file, "     [%zu] = %lg(POISON_ELEM)\n", i, stk -> data[i]);
+            fprintf(file, "     [%zu] = " SPEC_TYPEDEF "(POISON_ELEM)\n", i, stk -> data[i]);
         }
         #ifdef CANARY_PROTECT_ON
             else if (is_equal(stk -> data[i], CANARY_VALUE))
             {
-                fprintf(file, "     [%zu] = %lg(CANARY_VALUE)\n", i, stk -> data[i]);
+                fprintf(file, "     [%zu] = " SPEC_TYPEDEF "(CANARY_VALUE)\n", i, stk -> data[i]);
             }
         #endif
         else
         {
-            fprintf(file, "     *[%zu] = %lg\n", i, stk -> data[i]);
+            fprintf(file, "     *[%zu] = " SPEC_TYPEDEF "\n", i, stk -> data[i]);
         }
         
     }
@@ -413,7 +413,7 @@ stack_status stack_destroy(stack_lifo_t* stk, int line)
 //----------------------------------------------------------------------------
 bool is_equal(stack_elem_t a, stack_elem_t b)
 {
-    if (abs(a - b) < EPCILON)
+    if (abs(a - b) <= EPCILON)
         return true;
     else
         return false;
@@ -426,19 +426,19 @@ stack_status file_init(const char* name, const char* mode, int line)
 
     if (file == NULL)
     {
-        printf(RED "Stack dump error in (%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+        printf(RED "File init error in (%s)%s:%d\n" CRESET, __func__, __FILE__, line);
         error |= STK_DUMP_ERR;
         return PIZDETS;
     }
 
-    return PIZDETS;
+    return SUCCESS;
 }
 
 //----------------------------------------------------------------------------
 stack_status stack_errors_print(int line)
 {
     fprintf(file, "#############\n");
-    fprintf(file, "\tErrors in stack at (%s)%s:%d ; \n", __func__, __FILE__, line);
+    fprintf(file, "Errors in stack at (%s)%s:%d :\n", __func__, __FILE__, line);
     if (error == STK_NO_ERROR)
     {
         fprintf(file, "\tNo errors in stack\n");
@@ -466,12 +466,12 @@ stack_status stack_errors_print(int line)
 }
 
 //----------------------------------------------------------------------------
-void print_stack_status(stack_status stk_status)
+void print_stack_status(stack_status stk_status, int line)
 {
     if (stk_status == SUCCESS)
-        printf(GRN "Stack status: %u\n" CRESET, stk_status);
+        printf(GRN "Stack status in %s:%d: %u\n" CRESET, __FILE__, line, stk_status);
     else
-        printf(YEL "Stack status: %u\n" CRESET, stk_status);
+        printf(YEL "Stack status in %s:%d: %u\n" CRESET, __FILE__, line, stk_status);
 
     fprintf(file, "Stack status print success\n");
 }

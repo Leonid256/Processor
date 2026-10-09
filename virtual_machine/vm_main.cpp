@@ -1,4 +1,5 @@
-#include "stack.cpp"
+#include "stack.hpp"
+//#include "stack.cpp"
 #include "vm.hpp"
 
 #include <stdio.h>
@@ -24,19 +25,39 @@ int main()
     }
 
     stack_status stk_status = SUCCESS;
-    stack_lifo_t stk1 = {};
-    stk_status = stack_init_default(&stk1, START_CAPACITY);
-    stk_status = stack_dump_default(&stk1);
-
     vm_status prog_status = VM_SUCCESS;
+
+    stack_lifo_t stk1 = {};
+    stk_status = STACK_INIT(&stk1, START_CAPACITY);
+    stk_status = STACK_DUMP(&stk1);
+
+    PRINT_STACK_STATUS(stk_status);
+    PRINT_STATUS_VM(prog_status);
+
     size_t ip = 0;
 
-    size_t file_len = len_of_file(FILE_IN);
+    size_t file_len = (size_t)len_of_file(FILE_IN);
     size_t count = file_len / sizeof(vm_elem_t);
 
-    vm_elem_t* code = (vm_elem_t*) calloc(count, sizeof(vm_elem_t));
+    vm_elem_t* code = (vm_elem_t*) calloc(count + 100, sizeof(vm_elem_t));
 
     prog_status = txt_to_mass(FILE_IN, code);                    //перевод многострочного файла в единый массив команд
     
+    while (prog_status != VM_END_SECS)
+    {
+        prog_status = VM_COMAND(code, &ip, &stk1);
 
+        stk_status = STACK_DUMP(&stk1);
+
+        if (prog_status == VM_PIZDA)
+        {
+            printf(RED "HUINYA happened, program ends, ip = %zu\n" CRESET, ip);
+            return VM_PIZDA;
+        }
+    }
+
+    PRINT_STACK_STATUS(stk_status);
+    PRINT_STATUS_VM(prog_status);
+    printf(GRN "End of program\n" CRESET);
+    return 0;
 }

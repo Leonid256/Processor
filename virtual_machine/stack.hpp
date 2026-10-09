@@ -17,6 +17,10 @@ typedef int stack_elem_t;
 #define STK_VERIFY_ON
 
 //----------------------------------------------------------------------------
+extern unsigned long long error;
+extern FILE* file;
+
+//----------------------------------------------------------------------------
 struct stack_lifo_t
 {
     #ifdef CANARY_PROTECT_ON
@@ -69,27 +73,29 @@ stack_status stack_destroy(stack_lifo_t* stk, int line);
 bool is_equal(stack_elem_t a, stack_elem_t b);
 stack_status file_init(const char* name, const char* mode, int line);
 stack_status stack_errors_print(int line);
-void print_stack_status(stack_status stk_status);
+void print_stack_status(stack_status stk_status, int line);
 
 //----------------------------------------------------------------------------
 #define POISON_POINTER NULL
-#define SPEC_TYPEDEF "%lg"
+#define SPEC_TYPEDEF "%d"
 
 
-#define stack_init_default(stk, capacity) stack_init(stk, capacity, __LINE__)
+#define STACK_INIT(stk, capacity) stack_init(stk, capacity, __LINE__)
 #define stack_push_default(stk, value) stack_push(stk, value, __LINE__)
 #define stack_pop_default(stk, value) stack_pop(stk, value, __LINE__)
-#define stack_dump_default(stk) stack_dump(stk, __LINE__)
+#define STACK_DUMP(stk) stack_dump(stk, __LINE__)
 #define stack_destroy_default(stk) stack_destroy(stk, __LINE__)
 #define file_init_default(name, mode) file_init(name, mode, __LINE__)
+#define PRINT_STACK_STATUS(stk_status) print_stack_status(stk_status, __LINE__)
+
 //----------------------------------------------------------------------------
 const size_t START_CAPACITY = 5;
 const int INCREASE_DATA = 2;
-const stack_elem_t POISON_ELEM = 0xEDAEDADEDA;
-const stack_elem_t STRUCT_CANARY_VALUE = 0xDEADBEEFDEAD;
-const stack_elem_t CANARY_VALUE = 0xDEADBEEF;
-const char* STACK_DUMP_FILE = "stack_dump.log";
-const double EPCILON = 0.001;
+const stack_elem_t POISON_ELEM = 676767;
+const stack_elem_t STRUCT_CANARY_VALUE = 525252;
+const stack_elem_t CANARY_VALUE = 675267;
+const char* const STACK_DUMP_FILE = "stack_dump.log";
+const double EPCILON = 0.0;
 
 //----------------------------------------------------------------------------
 #endif
