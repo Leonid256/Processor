@@ -84,7 +84,7 @@ void print_stack_status(stack_status stk_status, int line);
 #define stack_push_default(stk, value) stack_push(stk, value, __LINE__)
 #define stack_pop_default(stk, value) stack_pop(stk, value, __LINE__)
 #define STACK_DUMP(stk) stack_dump(stk, __LINE__)
-#define stack_destroy_default(stk) stack_destroy(stk, __LINE__)
+#define STACK_DESTROY(stk) stack_destroy(stk, __LINE__)
 #define file_init_default(name, mode) file_init(name, mode, __LINE__)
 #define PRINT_STACK_STATUS(stk_status) print_stack_status(stk_status, __LINE__)
 

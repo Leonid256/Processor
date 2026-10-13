@@ -11,9 +11,10 @@ typedef int vm_elem_t;
 #include <sys/stat.h>
 
 #include "colours.hpp"
+#include "../commands/commands.hpp" //вставка enum с командами
 
 //----------------------------------------------------------------------------
-const char* const FILE_IN = "code.txt";
+const char* const FILE_IN = "../src/code.txt";
 
 //----------------------------------------------------------------------------
 enum vm_status
@@ -31,13 +32,13 @@ vm_status vm_add(stack_lifo_t* stk, int line);
 vm_status vm_sub(stack_lifo_t* stk, int line);
 vm_status vm_div(stack_lifo_t* stk, int line);
 vm_status vm_mul(stack_lifo_t* stk, int line);
-vm_status vm_comand(vm_elem_t* code, size_t* ip_ptr, stack_lifo_t* stk, int line);
+vm_status vm_command(vm_elem_t* code, size_t* ip_ptr, stack_lifo_t* stk, int line);
 void print_status_vm(vm_status prog_status, int line);
 
 //----------------------------------------------------------------------------
 #define VM_SPEC_TYPEDEF "%d"
 
-#define VM_COMAND(code, ip_ptr, stk) vm_comand(code, ip_ptr, stk, __LINE__)
+#define VM_COMMAND(code, ip_ptr, stk) vm_command(code, ip_ptr, stk, __LINE__)
 #define PRINT_STATUS_VM(prog_status) print_status_vm(prog_status, __LINE__)
 
 //----------------------------------------------------------------------------

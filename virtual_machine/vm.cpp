@@ -160,33 +160,33 @@ vm_status vm_mul(stack_lifo_t* stk, int line)
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_comand(vm_elem_t* code, size_t* ip_ptr, stack_lifo_t* stk, int line)
+vm_status vm_command(vm_elem_t* code, size_t* ip_ptr, stack_lifo_t* stk, int line)
 {
     vm_status vm_stat = VM_SUCCESS;
     vm_elem_t elem_1 = 0, elem_2 = 0;
 
-    vm_elem_t comand = code[*ip_ptr];
+    vm_elem_t command = code[*ip_ptr];
 
-    switch (comand)
+    switch (command)
     {
-        case (1):
+        case (PUSH):
             if (stack_push(stk, code[*ip_ptr + 1], line) != SUCCESS)
                 vm_stat = VM_PIZDA;
             (*ip_ptr) += 2;
             break;
-        case (2):
+        case (ADD):
             if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (stack_pop(stk, &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (stack_push(stk, elem_1 + elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
             (*ip_ptr)++;
             break;
-        case (3):
+        case (SUB):
             if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (stack_pop(stk, &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (stack_push(stk, elem_2 - elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
             (*ip_ptr)++;
             break;
-        case (4):
+        case (DIV):
             if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (stack_pop(stk, &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (elem_2 == 0)
@@ -198,22 +198,22 @@ vm_status vm_comand(vm_elem_t* code, size_t* ip_ptr, stack_lifo_t* stk, int line
             if (stack_push(stk, elem_2 / elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
             (*ip_ptr)++;
             break;
-        case (5):
+        case (OUT):
             if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
             else printf(BLU "Result: " VM_SPEC_TYPEDEF CRESET "\n", elem_1);
             (*ip_ptr)++;
             break;
-        case (6):
+        case (MUL):
             if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (stack_pop(stk, &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (stack_push(stk, elem_1 * elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
             (*ip_ptr)++;
             break;
-        case (0):
+        case (HLT):
             return VM_END_SECS;
             break;
         default:
-            printf(RED "Error: syntax error, comand = <%d> not exist\n" CRESET, comand);
+            printf(RED "Error: syntax error, comand = <%d> not exist\n" CRESET, command);
             (*ip_ptr)++;
             vm_stat = VM_PIZDA;
             break;

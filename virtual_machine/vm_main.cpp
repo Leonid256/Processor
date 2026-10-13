@@ -1,5 +1,4 @@
 #include "stack.hpp"
-//#include "stack.cpp"
 #include "vm.hpp"
 
 #include <stdio.h>
@@ -39,13 +38,13 @@ int main()
     size_t file_len = (size_t)len_of_file(FILE_IN);
     size_t count = file_len / sizeof(vm_elem_t);
 
-    vm_elem_t* code = (vm_elem_t*) calloc(count + 100, sizeof(vm_elem_t));
+    vm_elem_t* code = (vm_elem_t*) calloc(count + 2 * sizeof(vm_elem_t), sizeof(vm_elem_t));
 
-    prog_status = txt_to_mass(FILE_IN, code);                    //перевод многострочного файла в единый массив команд
+    prog_status = txt_to_mass(FILE_IN, code);   //перевод многострочного файла в единый массив команд
     
     while (prog_status != VM_END_SECS)
     {
-        prog_status = VM_COMAND(code, &ip, &stk1);
+        prog_status = VM_COMMAND(code, &ip, &stk1);
 
         stk_status = STACK_DUMP(&stk1);
 
@@ -55,6 +54,9 @@ int main()
             return VM_PIZDA;
         }
     }
+
+    stk_status = STACK_DUMP(&stk1);
+    stk_status = STACK_DESTROY(&stk1);
 
     PRINT_STACK_STATUS(stk_status);
     PRINT_STATUS_VM(prog_status);
