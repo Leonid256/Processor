@@ -1,6 +1,6 @@
 Stack init success
 #############
-Errors in stack at (stack_errors_print)stack.cpp:31 :
+Errors in stack at (stack_errors_print)stack.cpp:40 :
 	No errors in stack
 #############
 <------------
@@ -20,7 +20,7 @@ Stack dump success
 Stack status print success
 Stack push success. Value = 20
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -39,7 +39,7 @@ data [0x603000001c64]
 Stack dump success
 Stack push success. Value = 30
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -60,7 +60,7 @@ Stack pop success. Value = 30
 Stack pop success. Value = 20
 Stack push success. Value = 50
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -79,7 +79,7 @@ data [0x603000001c64]
 Stack dump success
 Stack push success. Value = 8
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -98,7 +98,7 @@ data [0x603000001c64]
 Stack dump success
 Stack push success. Value = 3
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -119,7 +119,7 @@ Stack pop success. Value = 3
 Stack pop success. Value = 8
 Stack push success. Value = 5
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -140,7 +140,7 @@ Stack pop success. Value = 5
 Stack pop success. Value = 50
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -159,7 +159,7 @@ data [0x603000001c64]
 Stack dump success
 Stack pop success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -177,7 +177,7 @@ data [0x603000001c64]
 
 Stack dump success
 #############
-Errors in stack at (stack_errors_print)stack.cpp:49 :
+Errors in stack at (stack_errors_print)stack.cpp:51 :
 	No errors in stack
 #############
 <------------
@@ -194,4 +194,23 @@ data [0x603000001c64]
 ------------>
 
 Stack dump success
+#############
+Errors in stack at (stack_errors_print)stack.cpp:60 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c64]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack destroy success
 Stack status print success

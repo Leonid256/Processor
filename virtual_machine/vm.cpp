@@ -17,14 +17,14 @@ ssize_t len_of_file(const char* name)
 }
 
 //----------------------------------------------------------------------------
-vm_status txt_to_mass(const char* name, vm_elem_t* code)
+vm_status txt_to_mass(const char* name, processor* proc)
 {
     FILE* file_txt = NULL;
     file_txt = fopen(name, "r");
 
     if (file_txt == NULL)
     {
-        printf(RED "Error code file opening\n" CRESET);
+        printf(RED "Error bite_code file opening\n" CRESET);
         return VM_PIZDA;
     }
 
@@ -35,7 +35,7 @@ vm_status txt_to_mass(const char* name, vm_elem_t* code)
     while ((q = fscanf(file_txt, VM_SPEC_TYPEDEF, &elem)) != EOF)
     {
         if (q == 1)
-            code[i++] = elem;
+            (proc -> bite_code)[i++] = elem;
     }
 
     fclose(file_txt);
@@ -45,11 +45,11 @@ vm_status txt_to_mass(const char* name, vm_elem_t* code)
 
 //----------------------------------------------------------------------------
 
-vm_status vm_push(stack_lifo_t* stk, vm_elem_t elem, int line)
+vm_status vm_push(processor* proc, vm_elem_t elem, int line)
 {
     vm_status vm_stat = VM_SUCCESS;
 
-    if (stack_push(stk, elem, line) != SUCCESS)
+    if (stack_push((proc -> data_stk), elem, line) != SUCCESS)
         vm_stat = VM_PIZDA;
     
     if (vm_stat == VM_PIZDA)
@@ -62,17 +62,17 @@ vm_status vm_push(stack_lifo_t* stk, vm_elem_t elem, int line)
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_add(stack_lifo_t* stk, int line)
+vm_status vm_add(processor* proc, int line)
 {
     vm_elem_t elem_1 = 0, elem_2 = 0;
     vm_status vm_stat = VM_SUCCESS;
 
-    if (stack_pop(stk, &elem_1, line) != SUCCESS)
+    if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
         vm_stat = VM_PIZDA;
-    if (stack_pop(stk, &elem_2, line) != SUCCESS)
+    if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
     
-    if (stack_push(stk, elem_1 + elem_2, line) != SUCCESS)
+    if (stack_push((proc -> data_stk), elem_1 + elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
     
     if (vm_stat == VM_PIZDA)
@@ -85,17 +85,17 @@ vm_status vm_add(stack_lifo_t* stk, int line)
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_sub(stack_lifo_t* stk, int line)
+vm_status vm_sub(processor* proc, int line)
 {
     vm_elem_t elem_1 = 0, elem_2 = 0;
     vm_status vm_stat = VM_SUCCESS;
 
-    if (stack_pop(stk, &elem_1, line) != SUCCESS)
+    if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
         vm_stat = VM_PIZDA;
-    if (stack_pop(stk, &elem_2, line) != SUCCESS)
+    if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
     
-    if (stack_push(stk, elem_1 - elem_2, line) != SUCCESS)
+    if (stack_push((proc -> data_stk), elem_1 - elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
     
     if (vm_stat == VM_PIZDA)
@@ -108,14 +108,14 @@ vm_status vm_sub(stack_lifo_t* stk, int line)
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_div(stack_lifo_t* stk, int line)
+vm_status vm_div(processor* proc, int line)
 {
     vm_elem_t elem_1 = 0, elem_2 = 0;
     vm_status vm_stat = VM_SUCCESS;
 
-    if (stack_pop(stk, &elem_1, line) != SUCCESS)
+    if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
         vm_stat = VM_PIZDA;
-    if (stack_pop(stk, &elem_2, line) != SUCCESS)
+    if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
 
     if (elem_2 == 0)
@@ -124,7 +124,7 @@ vm_status vm_div(stack_lifo_t* stk, int line)
         return VM_PIZDA;
     }
 
-    if (stack_push(stk, elem_1 / elem_2, line) != SUCCESS)
+    if (stack_push((proc -> data_stk), elem_1 / elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
     
     if (vm_stat == VM_PIZDA)
@@ -137,17 +137,17 @@ vm_status vm_div(stack_lifo_t* stk, int line)
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_mul(stack_lifo_t* stk, int line)
+vm_status vm_mul(processor* proc, int line)
 {
     vm_elem_t elem_1 = 0, elem_2 = 0;
     vm_status vm_stat = VM_SUCCESS;
 
-    if (stack_pop(stk, &elem_1, line) != SUCCESS)
+    if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
         vm_stat = VM_PIZDA;
-    if (stack_pop(stk, &elem_2, line) != SUCCESS)
+    if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
 
-    if (stack_push(stk, elem_1 * elem_2, line) != SUCCESS)
+    if (stack_push((proc -> data_stk), elem_1 * elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
     
     if (vm_stat == VM_PIZDA)
@@ -160,61 +160,61 @@ vm_status vm_mul(stack_lifo_t* stk, int line)
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_command(vm_elem_t* code, size_t* ip_ptr, stack_lifo_t* stk, int line)
+vm_status vm_command(processor* proc, int line)
 {
     vm_status vm_stat = VM_SUCCESS;
     vm_elem_t elem_1 = 0, elem_2 = 0;
 
-    vm_elem_t command = code[*ip_ptr];
+    vm_elem_t command = (proc -> bite_code)[proc -> ip];
 
     switch (command)
     {
         case (PUSH):
-            if (stack_push(stk, code[*ip_ptr + 1], line) != SUCCESS)
+            if (stack_push((proc -> data_stk), (proc -> bite_code)[proc -> ip + 1], line) != SUCCESS)
                 vm_stat = VM_PIZDA;
-            (*ip_ptr) += 2;
+            (proc -> ip) += 2;
             break;
         case (ADD):
-            if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
-            if (stack_pop(stk, &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
-            if (stack_push(stk, elem_1 + elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
-            (*ip_ptr)++;
+            if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_push((proc -> data_stk), elem_1 + elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
+            (proc -> ip)++;
             break;
         case (SUB):
-            if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
-            if (stack_pop(stk, &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
-            if (stack_push(stk, elem_2 - elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
-            (*ip_ptr)++;
+            if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_push((proc -> data_stk), elem_2 - elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
+            (proc -> ip)++;
             break;
         case (DIV):
-            if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
-            if (stack_pop(stk, &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
             if (elem_2 == 0)
             {
                 printf(RED "Error: attempt to divide by zero\n" CRESET);
                 vm_stat = VM_PIZDA;
                 break;
             }
-            if (stack_push(stk, elem_2 / elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
-            (*ip_ptr)++;
+            if (stack_push((proc -> data_stk), elem_2 / elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
+            (proc -> ip)++;
             break;
         case (OUT):
-            if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
             else printf(BLU "Result: " VM_SPEC_TYPEDEF CRESET "\n", elem_1);
-            (*ip_ptr)++;
+            (proc -> ip)++;
             break;
         case (MUL):
-            if (stack_pop(stk, &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
-            if (stack_pop(stk, &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
-            if (stack_push(stk, elem_1 * elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
-            (*ip_ptr)++;
+            if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
+            if (stack_push((proc -> data_stk), elem_1 * elem_2, line) != SUCCESS) vm_stat = VM_PIZDA;
+            (proc -> ip)++;
             break;
         case (HLT):
             return VM_END_SECS;
             break;
         default:
             printf(RED "Error: syntax error, comand = <%d> not exist\n" CRESET, command);
-            (*ip_ptr)++;
+            (proc -> ip)++;
             vm_stat = VM_PIZDA;
             break;
 
@@ -224,12 +224,12 @@ vm_status vm_command(vm_elem_t* code, size_t* ip_ptr, stack_lifo_t* stk, int lin
 }
 
 //----------------------------------------------------------------------------
-void print_status_vm(vm_status prog_status, int line)
+void print_status_vm(processor* proc, const char* FILE, int line)
 {
-    if (prog_status == VM_SUCCESS || prog_status == VM_END_SECS)
-        printf(GRN "VM status in %s:%d: %u\n" CRESET, __FILE__, line, prog_status);
+    if ((proc -> prog_status) == VM_SUCCESS || (proc -> prog_status) == VM_END_SECS)
+        printf(GRN "VM status in %s:%d: %u\n" CRESET, FILE, line, (proc -> prog_status));
     else
-        printf(YEL "VM status in %s:%d: %u\n" CRESET, __FILE__, line, prog_status);
+        printf(YEL "VM status in %s:%d: %u\n" CRESET, FILE, line, (proc -> prog_status));
 }
 
 #endif

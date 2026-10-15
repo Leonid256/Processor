@@ -466,12 +466,12 @@ stack_status stack_errors_print(int line)
 }
 
 //----------------------------------------------------------------------------
-void print_stack_status(stack_status stk_status, int line)
+void print_stack_status(stack_status stk_status, const char* FILE, int line)
 {
     if (stk_status == SUCCESS)
-        printf(GRN "Stack status in %s:%d: %u\n" CRESET, __FILE__, line, stk_status);
+        printf(GRN "Stack status in %s:%d: %u\n" CRESET, FILE, line, stk_status);
     else
-        printf(YEL "Stack status in %s:%d: %u\n" CRESET, __FILE__, line, stk_status);
+        printf(YEL "Stack status in %s:%d: %u\n" CRESET, FILE, line, stk_status);
 
     fprintf(file, "Stack status print success\n");
 }
