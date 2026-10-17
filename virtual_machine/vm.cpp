@@ -46,6 +46,9 @@ vm_status txt_to_mass(const char* name, processor* proc)
 //----------------------------------------------------------------------------
 vm_status vm_hlt(processor* proc, int line)
 {
+    (proc -> ip)++;
+    (void)line;
+
     return VM_END_SECS;
 }
 
@@ -319,12 +322,12 @@ vm_status vm_command(processor* proc, func_arr* arr, int line)
 // }
 
 //----------------------------------------------------------------------------
-void print_status_vm(processor* proc, const char* FILE, int line)
+void print_status_vm(processor* proc, const char* FILE_1, int line)
 {
     if ((proc -> prog_status) == VM_SUCCESS || (proc -> prog_status) == VM_END_SECS)
-        printf(GRN "VM status in %s:%d: %u\n" CRESET, FILE, line, (proc -> prog_status));
+        printf(GRN "VM status in %s:%d: %u\n" CRESET, FILE_1, line, (proc -> prog_status));
     else
-        printf(YEL "VM status in %s:%d: %u\n" CRESET, FILE, line, (proc -> prog_status));
+        printf(YEL "VM status in %s:%d: %u\n" CRESET, FILE_1, line, (proc -> prog_status));
 }
 
 #endif
