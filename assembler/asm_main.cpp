@@ -10,39 +10,70 @@ int main()
 
     asm_stat = open_files(file_asm, file_bite, __LINE__);
 
-    //vm_elem_t* buffer = (vm_elem_t*)calloc(BUFFER_SIZE, sizeof(vm_elem_t));
     char command[BUFFER_SIZE] = "";
-    int value = 0, line = 0, count = 0;
+    int value = 0, line = 1;
+    char value_str[BUFFER_SIZE] = "";
 
     print_asm_stat(asm_stat, __LINE__);
 
-    while ((count = fscanf(file_asm, " %s %d", command, &value)) > 0)
-    {
-        // vm_command bite_comand = "HLT";
+    size_t len = (size_t)len_of_file(FILE_ASM);
+    char* buffer = (char*) calloc(len + 2 * sizeof(vm_elem_t), sizeof(vm_elem_t));
 
-        for (size_t i = 0; i < sizeof(COMMANDS) / sizeof(char*); i++)
+    asm_to_buffer(buffer, file_asm, len);
+
+    int readed = 0;
+
+    while (sscanf(buffer, " %s%n", command, &readed) > 0)
+    {
+        buffer += readed;
+
+        int command_id = 0;
+        for (int i = 0; i < len_of_commands_array; i++)
         {
             if (strcmp(command, COMMANDS[i]) == 0)
             {
-                if ((count == 2 && strcmp(ARGS[i], "true")) || (count == 1 && strcmp(ARGS[i], "false")))
-                {
-                    printf(RED "Error in %d line in input file(code.asm) in %s:%d :: " 
-                        "(count = %d | ARGS[%zu] = %s)\n" CRESET, 
-                        line, __FILE__, __LINE__, count, i, ARGS[i]);
-                    asm_stat = ASM_PIZDA;
-                    break;
-                }
-                else if (count == 2)
-                {
-                    fprintf(file_bite, "%zu %d\n", i, value);
-                    break;
-                }
-                else if (count == 1)
-                {
-                    fprintf(file_bite, "%zu\n", i);
-                    break;
-                }
+                command_id = i;
+                break;
             }
+        }
+
+        if (command_id > MUL)
+        {
+            if (sscanf(buffer, " %d%n", &value, &readed))
+            {
+                fprintf(file_bite, "%d %d\n", command_id, value);
+                buffer += readed;
+            }
+            else
+            {
+                
+                if (sscanf(buffer, " [%[^]] ]%n", value_str, &readed) != 1)
+                {
+                    if (sscanf(buffer, " %s%n", value_str, &readed) != 1)
+                    {
+                        printf(RED "Error in %d line in input file(code.asm) in %s:%d\n" CRESET, 
+                                    line, __FILE__, __LINE__);
+                        asm_stat = ASM_PIZDA;
+                        break;
+                    }
+                }
+                buffer += readed;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    if (strcmp(value_str, registers_array[i]) == 0)
+                    {
+                        value = i;
+                        break;
+                    }
+                }
+
+                fprintf(file_bite, "%d %d\n", command_id, value);
+            }
+        }
+        else
+        {
+            fprintf(file_bite, "%d\n", command_id);
         }
 
         if (asm_stat == ASM_PIZDA) break;

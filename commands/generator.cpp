@@ -23,11 +23,17 @@ int main()
     //массив COMMANDS
     fprintf(file, "const char* const COMMANDS[] = {");
 
-    #define X(name, value, args) fprintf(file, "\"%s\", ", #name);
+    int len_comm = 0;
+    #define X(name, value, args)            \
+    {                                       \
+        fprintf(file, "\"%s\", ", #name);   \
+        len_comm++;                         \
+    }
     #include "../src/commands.txt"
     #undef X
 
     fprintf(file, "};\n\n");
+    fprintf(file, "const int len_of_commands_array = %d;\n\n", len_comm);
 
 
     //массив наличие/отсутствие аргументов

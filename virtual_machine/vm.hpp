@@ -37,11 +37,15 @@ struct processor
 //----------------------------------------------------------------------------
 ssize_t len_of_file(const char* name);
 vm_status txt_to_mass(const char* name, processor* proc);
-vm_status vm_push(processor* proc, vm_elem_t elem, int line);
+vm_status vm_push(processor* proc, int line);
 vm_status vm_add(processor* proc, int line);
 vm_status vm_sub(processor* proc, int line);
 vm_status vm_div(processor* proc, int line);
+vm_status vm_out(processor* proc, int line);
 vm_status vm_mul(processor* proc, int line);
+vm_status vm_pushr(processor* proc, int line);
+vm_status vm_popr(processor* proc, int line);
+
 vm_status vm_command(processor* proc, int line);
 void print_status_vm(processor* proc, const char* FILE, int line);
 

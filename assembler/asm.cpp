@@ -36,4 +36,23 @@ void print_asm_stat(asm_status asm_stat, int line)
 }
 
 //----------------------------------------------------------------------------
+ssize_t len_of_file(const char* name)
+{
+    struct stat file_info;
+    stat(name, &file_info);
+
+    if (file_info.st_size <= 0)
+        return 0;
+
+    return file_info.st_size;
+}
+
+//----------------------------------------------------------------------------
+size_t asm_to_buffer(char* buffer, FILE* file, size_t len)
+{
+    len = (size_t)fread(buffer, sizeof(vm_elem_t), (size_t)len, file);
+
+    return len;
+}
+//----------------------------------------------------------------------------
 #endif

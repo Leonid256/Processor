@@ -5,19 +5,23 @@
 enum vm_command
 {
     HLT   = 0,
-    PUSH  = 1,
-    ADD   = 2,
-    SUB   = 3,
-    DIV   = 4,
-    OUT   = 5,
-    MUL   = 6,
+    ADD   = 1,
+    SUB   = 2,
+    DIV   = 3,
+    OUT   = 4,
+    MUL   = 5,
+    PUSH  = 6,
     PUSHR = 7,
     POPR  = 8,
     JMP   = 9,
+    PUSHM = 10,
+    POPM  = 11,
 };
 
-const char* const COMMANDS[] = {"HLT", "PUSH", "ADD", "SUB", "DIV", "OUT", "MUL", "PUSHR", "POPR", "JMP", };
+const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "PUSH", "PUSHR", "POPR", "JMP", "PUSHM", "POPM", };
 
-const char* const ARGS[] = {"false", "true", "false", "false", "false", "false", "false", "true", "true", "true", };
+const int len_of_commands_array = 12;
+
+const char* const ARGS[] = {"false", "false", "false", "false", "false", "false", "true", "true", "true", "true", "true", "true", };
 
 #endif

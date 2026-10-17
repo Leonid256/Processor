@@ -1,10 +1,15 @@
 X(HLT, 0, false)
-X(PUSH, 1, true)
-X(ADD, 2, false)
-X(SUB, 3, false)
-X(DIV, 4, false)
-X(OUT, 5, false)
-X(MUL, 6, false)
+X(ADD, 1, false)
+X(SUB, 2, false)
+X(DIV, 3, false)
+X(OUT, 4, false)
+X(MUL, 5, false)
+
+X(PUSH, 6, true)
+
 X(PUSHR, 7, true)
 X(POPR, 8, true)
 X(JMP, 9, true)
+
+X(PUSHM, 10, true)
+X(POPM, 11, true)

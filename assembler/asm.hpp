@@ -16,6 +16,7 @@ typedef int vm_elem_t;
 const char* const FILE_ASM  = "../src/code.asm";
 const char* const FILE_BITE = "../src/code.txt";
 const vm_elem_t BUFFER_SIZE = 10 * sizeof(vm_elem_t);
+const int REGISTERS_CAPACITY = 4;
 
 
 //----------------------------------------------------------------------------
@@ -26,9 +27,13 @@ enum asm_status
     ASM_PIZDA     = 6767
 };
 
+const char* const registers_array[REGISTERS_CAPACITY] = {"ax", "bx", "cx", "dx"};
+
 //----------------------------------------------------------------------------
 asm_status open_files(FILE* &file_asm, FILE* &file_bite, int line);
 void print_asm_stat(asm_status asm_stat, int line);
+ssize_t len_of_file(const char* name);
+size_t asm_to_buffer(char* buffer, FILE* file, size_t len);
 
 //----------------------------------------------------------------------------
 #endif

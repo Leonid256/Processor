@@ -62,6 +62,6 @@ int main()
 
     PRINT_STACK_STATUS(stk_status);
     PRINT_STATUS_VM(&proc);
-    printf(GRN "End of program\n" CRESET);
+    printf(BLU "End of program\n" CRESET);
     return 0;
 }

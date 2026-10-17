@@ -9,3 +9,6 @@ DIV
 OUT
 
 HLT
+
+PUSHM [ax]
+PUSHR dx
