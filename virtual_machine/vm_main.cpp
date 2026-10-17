@@ -23,11 +23,17 @@ int main()
         }
     }
 
+    func_arr command_func_arr[len_of_commands_array] = 
+    {
+        vm_hlt, vm_add, vm_sub, vm_div, vm_out,
+        vm_push, vm_pushr, vm_popr,     //TODO: jmp, pushm, popm
+    };
+
 
     stack_status stk_status = SUCCESS;
     stack_lifo_t stk = {};
 
-    size_t file_len = (size_t)len_of_file(FILE_IN);
+    size_t file_len = len_of_file(FILE_IN);
     size_t count = file_len / sizeof(vm_elem_t);
 
     processor proc = {};
@@ -46,7 +52,7 @@ int main()
     
     while ((proc.prog_status) != VM_END_SECS)
     {
-        (proc.prog_status) = VM_COMMAND(&proc);
+        (proc.prog_status) = VM_COMMAND(&proc, command_func_arr);
 
         stk_status = STACK_DUMP(proc.data_stk);
 

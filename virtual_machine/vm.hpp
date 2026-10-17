@@ -34,25 +34,29 @@ struct processor
     stack_lifo_t* data_stk;
 };
 
+typedef vm_status (*func_arr)(processor*, int);
+
 //----------------------------------------------------------------------------
-ssize_t len_of_file(const char* name);
+size_t len_of_file(const char* name);
 vm_status txt_to_mass(const char* name, processor* proc);
-vm_status vm_push(processor* proc, int line);
+
+vm_status vm_hlt(processor* proc, int line);
 vm_status vm_add(processor* proc, int line);
 vm_status vm_sub(processor* proc, int line);
 vm_status vm_div(processor* proc, int line);
 vm_status vm_out(processor* proc, int line);
 vm_status vm_mul(processor* proc, int line);
+vm_status vm_push(processor* proc, int line);
 vm_status vm_pushr(processor* proc, int line);
 vm_status vm_popr(processor* proc, int line);
 
-vm_status vm_command(processor* proc, int line);
+vm_status vm_command(processor* proc, func_arr* arr, int line);
 void print_status_vm(processor* proc, const char* FILE, int line);
 
 //----------------------------------------------------------------------------
 #define VM_SPEC_TYPEDEF "%d"
 
-#define VM_COMMAND(proc) vm_command(proc, __LINE__)
+#define VM_COMMAND(proc, arr) vm_command(proc, arr, __LINE__)
 #define PRINT_STATUS_VM(proc) print_status_vm(proc, __FILE__, __LINE__)
 
 //----------------------------------------------------------------------------
