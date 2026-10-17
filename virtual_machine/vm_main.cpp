@@ -25,7 +25,7 @@ int main()
 
     func_arr command_func_arr[len_of_commands_array] = 
     {
-        vm_hlt, vm_add, vm_sub, vm_div, vm_out,
+        vm_hlt, vm_add, vm_sub, vm_div, vm_out, vm_mul,
         vm_push, vm_pushr, vm_popr,     //TODO: jmp, pushm, popm
     };
 
@@ -41,6 +41,7 @@ int main()
     proc.bite_code = (vm_elem_t*) calloc(count + 2 * sizeof(vm_elem_t), sizeof(vm_elem_t));
     proc.ip = 0;
     proc.data_stk = &stk;
+    proc.ram = (vm_elem_t*) calloc(RAM_CAPACITY, sizeof(vm_elem_t));
 
     stk_status = STACK_INIT(proc.data_stk, START_CAPACITY);
     stk_status = STACK_DUMP(proc.data_stk);
@@ -66,8 +67,11 @@ int main()
     stk_status = STACK_DUMP(proc.data_stk);
     stk_status = STACK_DESTROY(proc.data_stk);
 
+    free(proc.bite_code);
+
     PRINT_STACK_STATUS(stk_status);
     PRINT_STATUS_VM(&proc);
     printf(BLU "End of program\n" CRESET);
+
     return 0;
 }

@@ -110,7 +110,7 @@ vm_status vm_div(processor* proc, int line)
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
 
-    if (elem_2 == 0)
+    if (elem_1 == 0)
     {
         printf(RED "Error: attempt to divide by zero\n" CRESET);
         return VM_PIZDA;
@@ -206,7 +206,7 @@ vm_status vm_pushr(processor* proc, int line)
         return VM_PIZDA;
     }
 
-    (proc -> ip)++;
+    (proc -> ip) += 2;
 
     return VM_SUCCESS;
 }
@@ -224,6 +224,8 @@ vm_status vm_popr(processor* proc, int line)
         printf(RED "Error in vm_popr:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
         return VM_PIZDA;
     }
+
+    (proc -> ip)++;
 
     return VM_SUCCESS;
 }
