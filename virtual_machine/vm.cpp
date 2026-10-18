@@ -234,6 +234,18 @@ vm_status vm_popr(processor* proc, int line)
 }
 
 //----------------------------------------------------------------------------
+vm_status vm_pushm(processor* proc, int line)
+{
+
+}
+
+//----------------------------------------------------------------------------
+vm_status vm_pushm(processor* proc, int line)
+{
+
+}
+
+//----------------------------------------------------------------------------
 vm_status vm_command(processor* proc, func_arr* arr, int line)
 {
     vm_status vm_stat = VM_SUCCESS;
