@@ -73,8 +73,6 @@ asm_status asm_first_go(char* buffer, int labels[])
             sscanf(command, " :%d%n", &value, &readed);
             labels[value] = index;
 
-            //printf("label [:%d] = %d\n", value, index);
-
             buffer += readed;
             index++;
             continue;
@@ -92,56 +90,25 @@ asm_status asm_first_go(char* buffer, int labels[])
 
         if (command_id > MUL)
         {
-            if (sscanf(buffer, " %d%n", &value, &readed))
-            {
-                //fprintf(file_bite, "%d %d\n", command_id, value);
-                buffer += readed;
-            }
+            if (sscanf(buffer, " %d%n", &value, &readed)) buffer += readed;
             else
             {
-                
                 if (sscanf(buffer, " [%[^]] ]%n", value_str, &readed) != 1)
                 {
-                    //if (sscanf(buffer, " :%d%n", value, &readed) != 1)              //проверка на jmp
-                    //{
-                        if (sscanf(buffer, " %s%n", value_str, &readed) != 1)
-                        {
-                            printf(RED "Error in %d line in input file(code.asm) in %s:%d\n" CRESET, 
-                                        line, __FILE__, __LINE__);
-                            return ASM_PIZDA;
-                        }
-                    //}
-                    // else
-                    // {
-                    //     value = labels[value];
-                    //     fprintf(file_bite, "%d %d\n", command_id, value);
-
-                    //     buffer += readed;
-                    //     continue;
-                    // }
-                }
-                buffer += readed;
-
-                for (int i = 0; i < 4; i++)
-                {
-                    if (strcmp(value_str, registers_array[i]) == 0)
+                    if (sscanf(buffer, " %s%n", value_str, &readed) != 1)
                     {
-                        value = i;
-                        break;
+                        printf(RED "Error in %d line in input file(code.asm) in %s:%d\n" CRESET, 
+                                    line, __FILE__, __LINE__);
+                        return ASM_PIZDA;
                     }
                 }
 
-                //fprintf(file_bite, "%d %d\n", command_id, value);
+                buffer += readed;
             }
 
             index += 2;
         }
-        else
-        {
-            //fprintf(file_bite, "%d\n", command_id);
-
-            index += 1;
-        }
+        else index += 1;
 
         line++;
     }
