@@ -51,6 +51,9 @@ vm_status vm_mul(processor* proc, int line);
 vm_status vm_push(processor* proc, int line);
 vm_status vm_pushr(processor* proc, int line);
 vm_status vm_popr(processor* proc, int line);
+vm_status vm_jmp(processor* pproc, int line);
+vm_status vm_pushm(processor* pproc, int line);
+vm_status vm_popm(processor* pproc, int line);
 
 vm_status vm_command(processor* proc, func_arr* arr, int line);
 void print_status_vm(processor* proc, const char* FILE, int line);

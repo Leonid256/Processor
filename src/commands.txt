@@ -1,4 +1,5 @@
 X(HLT, 0, false)
+
 X(ADD, 1, false)
 X(SUB, 2, false)
 X(DIV, 3, false)

@@ -1,14 +1,16 @@
-PUSH 20
-PUSH 30
-ADD
+PUSH 1
+POPR ax
 
-PUSH 8
-PUSH 3
-SUB
-DIV
+:1
+
+PUSHR ax
+MUL
 OUT
+POPR ax
+PUSH 1
+ADD
+POPR ax
+
+JMP :1
 
 HLT
-
-PUSHM [ax]
-PUSHR dx

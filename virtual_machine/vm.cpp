@@ -234,7 +234,7 @@ vm_status vm_popr(processor* proc, int line)
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_pushm(processor* proc, int line)
+vm_status vm_jmp(processor* pproc, int line)
 {
 
 }
@@ -242,7 +242,41 @@ vm_status vm_pushm(processor* proc, int line)
 //----------------------------------------------------------------------------
 vm_status vm_pushm(processor* proc, int line)
 {
+    vm_status vm_stat = VM_SUCCESS;
 
+    int index = (proc -> registers)[(proc -> bite_code)[proc -> ip + 1]];
+    if (stack_push((proc -> data_stk), (proc -> ram)[index], line) != SUCCESS)
+        vm_stat = VM_PIZDA;
+    
+    if (vm_stat == VM_PIZDA)
+    {
+        printf(RED "Error in vm_pushm:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+        return VM_PIZDA;
+    }
+
+    (proc -> ip) += 2;
+
+    return VM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+vm_status vm_popm(processor* proc, int line)
+{
+    vm_status vm_stat = VM_SUCCESS;
+
+    int index = (proc -> registers)[(proc -> bite_code)[proc -> ip + 1]];
+    if (stack_pop((proc -> data_stk), &(proc -> ram)[index], line) != SUCCESS)
+        vm_stat = VM_PIZDA;
+    
+    if (vm_stat == VM_PIZDA)
+    {
+        printf(RED "Error in vm_popm:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+        return VM_PIZDA;
+    }
+
+    (proc -> ip)++;
+
+    return VM_SUCCESS;
 }
 
 //----------------------------------------------------------------------------
@@ -254,6 +288,15 @@ vm_status vm_command(processor* proc, func_arr* arr, int line)
     vm_stat = arr[command](proc, line);
 
     return vm_stat;
+}
+
+//----------------------------------------------------------------------------
+void print_status_vm(processor* proc, const char* FILE_1, int line)
+{
+    if ((proc -> prog_status) == VM_SUCCESS || (proc -> prog_status) == VM_END_SECS)
+        printf(GRN "VM status in %s:%d: %u\n" CRESET, FILE_1, line, (proc -> prog_status));
+    else
+        printf(YEL "VM status in %s:%d: %u\n" CRESET, FILE_1, line, (proc -> prog_status));
 }
 
 //----------------------------------------------------------------------------
@@ -332,14 +375,5 @@ vm_status vm_command(processor* proc, func_arr* arr, int line)
 
 //     return vm_stat;
 // }
-
-//----------------------------------------------------------------------------
-void print_status_vm(processor* proc, const char* FILE_1, int line)
-{
-    if ((proc -> prog_status) == VM_SUCCESS || (proc -> prog_status) == VM_END_SECS)
-        printf(GRN "VM status in %s:%d: %u\n" CRESET, FILE_1, line, (proc -> prog_status));
-    else
-        printf(YEL "VM status in %s:%d: %u\n" CRESET, FILE_1, line, (proc -> prog_status));
-}
 
 #endif
