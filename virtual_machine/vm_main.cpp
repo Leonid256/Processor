@@ -26,7 +26,9 @@ int main()
     func_arr command_func_arr[len_of_commands_array] = 
     {
         vm_hlt, vm_add, vm_sub, vm_div, vm_out, vm_mul,
-        vm_push, vm_pushr, vm_popr, vm_jmp, vm_pushm, vm_popm,
+        vm_push, vm_pushr, vm_popr, 
+        vm_jmp, vm_ja, vm_jae, vm_jb, vm_jbe, vm_je, vm_jne,
+        vm_pushm, vm_popm,
     };
 
 
@@ -34,11 +36,11 @@ int main()
     stack_lifo_t stk = {};
 
     size_t file_len = len_of_file(FILE_IN);
-    size_t count = file_len / sizeof(vm_elem_t);
+    size_t count = file_len;
 
     processor proc = {};
     proc.prog_status = VM_SUCCESS;
-    proc.bite_code = (vm_elem_t*) calloc(count + 2 * sizeof(vm_elem_t), sizeof(vm_elem_t));
+    proc.bite_code = (vm_elem_t*) calloc(count + 2, sizeof(vm_elem_t));
     proc.ip = 0;
     proc.data_stk = &stk;
     proc.ram = (vm_elem_t*) calloc(RAM_CAPACITY, sizeof(vm_elem_t));
@@ -49,7 +51,7 @@ int main()
     PRINT_STACK_STATUS(stk_status);
     PRINT_STATUS_VM(&proc);
 
-    (proc.prog_status) = txt_to_mass(FILE_IN, &proc);   //перевод многострочного файла в единый массив команд
+    proc.prog_status = txt_to_mass(FILE_IN, &proc);   //перевод многострочного файла в единый массив команд
     
     while ((proc.prog_status) != VM_END_SECS)
     {

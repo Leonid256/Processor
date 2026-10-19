@@ -14,14 +14,20 @@ enum vm_command
     PUSHR = 7,
     POPR  = 8,
     JMP   = 9,
-    PUSHM = 10,
-    POPM  = 11,
+    JA    = 10,
+    JAE   = 11,
+    JB    = 12,
+    JBE   = 13,
+    JE    = 14,
+    JNE   = 15,
+    PUSHM = 16,
+    POPM  = 17,
 };
 
-const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "PUSH", "PUSHR", "POPR", "JMP", "PUSHM", "POPM", };
+const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "PUSH", "PUSHR", "POPR", "JMP", "JA", "JAE", "JB", "JBE", "JE", "JNE", "PUSHM", "POPM", };
 
-const int len_of_commands_array = 12;
+const int len_of_commands_array = 18;
 
-const char* const ARGS[] = {"false", "false", "false", "false", "false", "false", "true", "true", "true", "true", "true", "true", };
+const char* const ARGS[] = {"false", "false", "false", "false", "false", "false", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", };
 
 #endif

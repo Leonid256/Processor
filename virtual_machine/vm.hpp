@@ -51,7 +51,15 @@ vm_status vm_mul(processor* proc, int line);
 vm_status vm_push(processor* proc, int line);
 vm_status vm_pushr(processor* proc, int line);
 vm_status vm_popr(processor* proc, int line);
+
 vm_status vm_jmp(processor* pproc, int line);
+vm_status vm_ja(processor* proc, int line);
+vm_status vm_jae(processor* proc, int line);
+vm_status vm_jb(processor* proc, int line);
+vm_status vm_jbe(processor* proc, int line);
+vm_status vm_je(processor* proc, int line);
+vm_status vm_jne(processor* proc, int line);
+
 vm_status vm_pushm(processor* pproc, int line);
 vm_status vm_popm(processor* pproc, int line);
 

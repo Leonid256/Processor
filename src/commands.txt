@@ -10,7 +10,14 @@ X(PUSH, 6, true)
 
 X(PUSHR, 7, true)
 X(POPR, 8, true)
-X(JMP, 9, true)
 
-X(PUSHM, 10, true)
-X(POPM, 11, true)
+X(JMP, 9, true)
+X(JA, 10, true)
+X(JAE, 11, true)
+X(JB, 12, true)
+X(JBE, 13, true)
+X(JE, 14, true)
+X(JNE, 15, true)
+
+X(PUSHM, 16, true)
+X(POPM, 17, true)

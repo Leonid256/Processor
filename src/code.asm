@@ -1,16 +1,14 @@
-PUSH 1
-POPR ax
-
 :1
 
 PUSHR ax
-MUL
-OUT
-POPR ax
 PUSH 1
 ADD
 POPR ax
+PUSHR ax
+OUT
 
-JMP :1
+PUSHR ax
+PUSH 10
+JA :1
 
 HLT

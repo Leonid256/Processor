@@ -73,7 +73,6 @@ asm_status asm_first_go(char* buffer, int labels[])
             sscanf(command, " :%d%n", &value, &readed);
             labels[value] = index;
 
-            buffer += readed;
             index++;
             continue;
         }
@@ -90,10 +89,10 @@ asm_status asm_first_go(char* buffer, int labels[])
 
         if (command_id > MUL)
         {
-            if (sscanf(buffer, " %d%n", &value, &readed)) buffer += readed;
+            if (sscanf(buffer, " %d%n", &value, &readed) == 1) buffer += readed;
             else
             {
-                if (sscanf(buffer, " [%[^]] ]%n", value_str, &readed) != 1)
+                if (sscanf(buffer, " [%[^]]]%n", value_str, &readed) != 1)
                 {
                     if (sscanf(buffer, " %s%n", value_str, &readed) != 1)
                     {
@@ -143,13 +142,12 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
         {
             sscanf(command, " :%d%n", &value, &readed);
 
-            buffer += readed;
             continue;
         }
 
         if (command_id > MUL)
         {
-            if (sscanf(buffer, " %d%n", &value, &readed))
+            if (sscanf(buffer, " %d%n", &value, &readed) == 1)
             {
                 fprintf(file_bite, "%d %d\n", command_id, value);
                 buffer += readed;
@@ -157,7 +155,7 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
             else
             {
                 
-                if (sscanf(buffer, " [%[^]] ]%n", value_str, &readed) != 1)
+                if (sscanf(buffer, " [%[^]]]%n", value_str, &readed) != 1)
                 {
                     if (sscanf(buffer, " :%d%n", &value, &readed) != 1)              //проверка на jmp
                     {
