@@ -7,6 +7,9 @@ POPR ax
 PUSHR ax
 OUT
 
+PUSH 67
+POPM [ax]
+
 PUSHR ax
 PUSH 10
 JA :1

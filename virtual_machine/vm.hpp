@@ -65,12 +65,14 @@ vm_status vm_popm(processor* pproc, int line);
 
 vm_status vm_command(processor* proc, func_arr* arr, int line);
 void print_status_vm(processor* proc, const char* FILE, int line);
+vm_status print_vm_ram(processor* proc, int line);
 
 //----------------------------------------------------------------------------
 #define VM_SPEC_TYPEDEF "%d"
 
 #define VM_COMMAND(proc, arr) vm_command(proc, arr, __LINE__)
 #define PRINT_STATUS_VM(proc) print_status_vm(proc, __FILE__, __LINE__)
+#define PRINT_VM_RAM(proc) print_vm_ram(proc, __LINE__)
 
 //----------------------------------------------------------------------------
 #endif

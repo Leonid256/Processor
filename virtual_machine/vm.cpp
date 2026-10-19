@@ -485,4 +485,40 @@ void print_status_vm(processor* proc, const char* FILE_1, int line)
         printf(YEL "VM status in %s:%d: %u\n" CRESET, FILE_1, line, (proc -> prog_status));
 }
 
+//----------------------------------------------------------------------------
+vm_status print_vm_ram(processor* proc, int line)
+{
+    vm_status vm_stat = VM_SUCCESS;
+
+    printf("vvvvvvvvvvvvvvvvvv|RAM|vvvvvvvvvvvvvvvvvv\n");
+    for (int i = 0; i < RAM_CAPACITY; i++)
+    {
+        if (i % 10 != 0)
+        {
+            if (proc -> ram[i] != 0)
+                printf("%3d ", proc -> ram[i]);
+            else
+                printf(" .  ");
+        }
+        else
+        {
+            printf("\n");
+            if (proc -> ram[i] != 0)
+                printf("%3d ", proc -> ram[i]);
+            else
+                printf(" .  ");
+        }
+    }
+    printf("\n\n");
+    printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+
+    if (vm_stat == VM_PIZDA)
+    {
+        printf(RED "Error in print_vm_ram:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+        return VM_PIZDA;
+    }
+
+    return vm_stat;
+}
+
 #endif
