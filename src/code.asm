@@ -1,3 +1,6 @@
+IN
+POPR cx
+
 PUSHR ax
 PUSH 1
 ADD
@@ -17,8 +20,8 @@ MUL
 POPR ax
 
 PUSHR bx
-PUSH 10
-JA :1
+PUSHR cx
+JNE :1
 
 PUSHR ax
 OUT

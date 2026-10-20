@@ -25,7 +25,7 @@ int main()
 
     func_arr command_func_arr[len_of_commands_array] = 
     {
-        vm_hlt, vm_add, vm_sub, vm_div, vm_out, vm_mul,
+        vm_hlt, vm_add, vm_sub, vm_div, vm_out, vm_mul, vm_in, 
         vm_push, vm_pushr, vm_popr, 
         vm_jmp, vm_ja, vm_jae, vm_jb, vm_jbe, vm_je, vm_jne,
         vm_pushm, vm_popm,

@@ -48,6 +48,8 @@ vm_status vm_sub(processor* proc, int line);
 vm_status vm_div(processor* proc, int line);
 vm_status vm_out(processor* proc, int line);
 vm_status vm_mul(processor* proc, int line);
+vm_status vm_in(processor* proc, int line);
+
 vm_status vm_push(processor* proc, int line);
 vm_status vm_pushr(processor* proc, int line);
 vm_status vm_popr(processor* proc, int line);

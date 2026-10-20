@@ -177,6 +177,28 @@ vm_status vm_mul(processor* proc, int line)
 }
 
 //----------------------------------------------------------------------------
+vm_status vm_in(processor* proc, int line)
+{
+    vm_status vm_stat = VM_SUCCESS;
+
+    vm_elem_t value = 0;
+    scanf("%d", &value);
+
+    if (stack_push((proc -> data_stk), value, line) != SUCCESS)
+        vm_stat = VM_PIZDA;
+    
+    if (vm_stat == VM_PIZDA)
+    {
+        printf(RED "Error in vm_in:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+        return VM_PIZDA;
+    }
+
+    (proc -> ip)++;
+
+    return VM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
 vm_status vm_push(processor* proc, int line)
 {
     vm_status vm_stat = VM_SUCCESS;

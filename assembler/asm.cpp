@@ -87,7 +87,7 @@ asm_status asm_first_go(char* buffer, int labels[])
             }
         }
 
-        if (command_id > MUL)
+        if (ARGS[command_id])
         {
             if (sscanf(buffer, " %d%n", &value, &readed) == 1) buffer += readed;
             else
@@ -145,7 +145,7 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
             continue;
         }
 
-        if (command_id > MUL)
+        if (ARGS[command_id])
         {
             if (sscanf(buffer, " %d%n", &value, &readed) == 1)
             {

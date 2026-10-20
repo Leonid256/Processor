@@ -10,24 +10,25 @@ enum vm_command
     DIV   = 3,
     OUT   = 4,
     MUL   = 5,
-    PUSH  = 6,
-    PUSHR = 7,
-    POPR  = 8,
-    JMP   = 9,
-    JA    = 10,
-    JAE   = 11,
-    JB    = 12,
-    JBE   = 13,
-    JE    = 14,
-    JNE   = 15,
-    PUSHM = 16,
-    POPM  = 17,
+    IN    = 6,
+    PUSH  = 7,
+    PUSHR = 8,
+    POPR  = 9,
+    JMP   = 10,
+    JA    = 11,
+    JAE   = 12,
+    JB    = 13,
+    JBE   = 14,
+    JE    = 15,
+    JNE   = 16,
+    PUSHM = 17,
+    POPM  = 18,
 };
 
-const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "PUSH", "PUSHR", "POPR", "JMP", "JA", "JAE", "JB", "JBE", "JE", "JNE", "PUSHM", "POPM", };
+const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "IN", "PUSH", "PUSHR", "POPR", "JMP", "JA", "JAE", "JB", "JBE", "JE", "JNE", "PUSHM", "POPM", };
 
-const int len_of_commands_array = 18;
+const int len_of_commands_array = 19;
 
-const char* const ARGS[] = {"false", "false", "false", "false", "false", "false", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", };
+const bool ARGS[] = {false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, };
 
 #endif

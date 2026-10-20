@@ -37,9 +37,9 @@ int main()
 
 
     //массив наличие/отсутствие аргументов
-    fprintf(file, "const char* const ARGS[] = {");
+    fprintf(file, "const bool ARGS[] = {");
 
-    #define X(name, value, args) fprintf(file, "\"%s\", ", #args);
+    #define X(name, value, args) fprintf(file, "%s, ", #args);
     #include "../src/commands.txt"
     #undef X
 
