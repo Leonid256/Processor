@@ -1,0 +1,1 @@
+g++ disasm_main.cpp disasm.cpp -o disasm.out

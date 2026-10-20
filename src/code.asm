@@ -1,17 +1,25 @@
-:1
-
 PUSHR ax
 PUSH 1
 ADD
 POPR ax
-PUSHR ax
-OUT
 
-PUSH 67
-POPM [ax]
+:1
 
+PUSHR bx
+PUSH 1
+ADD
+POPR bx
+
+PUSHR bx
 PUSHR ax
+MUL
+
+POPR ax
+
+PUSHR bx
 PUSH 10
 JA :1
 
+PUSHR ax
+OUT
 HLT

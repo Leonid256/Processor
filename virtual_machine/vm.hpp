@@ -15,7 +15,7 @@ typedef int vm_elem_t;
 
 //----------------------------------------------------------------------------
 const char* const FILE_IN       = "../src/code.txt";
-const int REGISTERS_CAPACITY    = 4;
+const int REGISTERS_CAPACITY    = 5;
 const int RAM_CAPACITY          = 100;
 
 //----------------------------------------------------------------------------

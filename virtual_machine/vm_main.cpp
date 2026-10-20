@@ -66,7 +66,7 @@ int main()
         }
     }
 
-    proc.prog_status = PRINT_VM_RAM(&proc);
+    //proc.prog_status = PRINT_VM_RAM(&proc);
 
     stk_status = STACK_DUMP(proc.data_stk);
     stk_status = STACK_DESTROY(proc.data_stk);
