@@ -6,8 +6,15 @@ PUSH 1
 ADD
 POPR ax
 
-:1
+CALL :2
+PUSHR ax
+OUT
+HLT
 
+
+:2
+
+:1
 PUSHR bx
 PUSH 1
 ADD
@@ -21,8 +28,6 @@ POPR ax
 
 PUSHR bx
 PUSHR cx
-JNE :1
+JA :1
 
-PUSHR ax
-OUT
-HLT
+RET

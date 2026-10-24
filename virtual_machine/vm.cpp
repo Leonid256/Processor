@@ -258,11 +258,9 @@ vm_status vm_popr(processor* proc, int line)
 //----------------------------------------------------------------------------
 vm_status vm_jmp(processor* proc, int line)
 {
-    vm_status vm_stat = VM_SUCCESS;
-
     int address = (proc -> bite_code)[proc -> ip + 1];
 
-    if (vm_stat == VM_PIZDA || address < 0)
+    if (address < 0)
     {
         printf(RED "Error in vm_jmp:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
         return VM_PIZDA;
@@ -443,6 +441,47 @@ vm_status vm_jne(processor* proc, int line)
         printf(RED "Error in vm_jne:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
         return VM_PIZDA;
     }
+
+    return VM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+vm_status vm_call(processor* proc, int line)
+{
+    (void)line;
+    vm_status vm_stat = VM_SUCCESS;
+
+    if (stack_push((proc -> ret_stk), (int)(proc -> ip + 2), __LINE__) != SUCCESS)
+        vm_stat = VM_PIZDA;
+
+    int address = (proc -> bite_code)[proc -> ip + 1];
+
+    if (vm_stat == VM_PIZDA || address < 0)
+    {
+        printf(RED "Error in vm_call:(%s)%s:%d\n" CRESET, __func__, __FILE__, __LINE__);
+        return VM_PIZDA;
+    }
+
+    (proc -> ip) = (size_t)address;
+
+    return VM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+vm_status vm_ret(processor* proc, int line)
+{
+    (void)line;
+    int address = 0;
+    if (stack_pop((proc -> ret_stk), &address, __LINE__) != SUCCESS)
+        return VM_PIZDA;
+
+    if (address < 0 )
+    {
+        printf(RED "Error in vm_ret:(%s)%s:%d\n" CRESET, __func__, __FILE__, __LINE__);
+        return VM_PIZDA;
+    }
+
+    (proc -> ip) = (size_t)address;
 
     return VM_SUCCESS;
 }

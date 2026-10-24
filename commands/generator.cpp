@@ -13,7 +13,12 @@ int main()
     //enum vm_command
     fprintf(file, "enum vm_command\n{\n");
 
-    #define X(name, value, args) fprintf(file, "    %-5s = %d,\n", #name, value);
+    int comm_value = 0;
+    #define X(name, args)                                           \
+    {                                                               \
+        fprintf(file, "    %-5s = %d,\n", #name, comm_value);       \
+        comm_value++;                                               \
+    }
     #include "../src/commands.txt"
     #undef X
 
@@ -24,7 +29,7 @@ int main()
     fprintf(file, "const char* const COMMANDS[] = {");
 
     int len_comm = 0;
-    #define X(name, value, args)            \
+    #define X(name, args)                   \
     {                                       \
         fprintf(file, "\"%s\", ", #name);   \
         len_comm++;                         \
@@ -39,7 +44,7 @@ int main()
     //массив наличие/отсутствие аргументов
     fprintf(file, "const bool ARGS[] = {");
 
-    #define X(name, value, args) fprintf(file, "%s, ", #args);
+    #define X(name, args) fprintf(file, "%s, ", #args);
     #include "../src/commands.txt"
     #undef X
 

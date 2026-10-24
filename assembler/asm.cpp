@@ -73,7 +73,6 @@ asm_status asm_first_go(char* buffer, int labels[])
             sscanf(command, " :%d%n", &value, &readed);
             labels[value] = index;
 
-            index++;
             continue;
         }
 
@@ -128,7 +127,14 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
     {
         buffer += readed;
 
-        int command_id = 0;
+        if (command[0] == ':')                                  //обработка меток
+        {
+            sscanf(command, " :%d%n", &value, &readed);
+
+            continue;
+        }
+
+        int command_id = -1;                                    //определение номера команды
         for (int i = 0; i < len_of_commands_array; i++)
         {
             if (strcmp(command, COMMANDS[i]) == 0)
@@ -137,13 +143,12 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
                 break;
             }
         }
-
-        if (command[0] == ':')                                  //обработка меток
+        if (command_id == -1)
         {
-            sscanf(command, " :%d%n", &value, &readed);
-
-            continue;
+            printf(RED "Error: uncnown command\n" CRESET);
+            return ASM_PIZDA;
         }
+
 
         if (ARGS[command_id])
         {
@@ -157,7 +162,7 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
                 
                 if (sscanf(buffer, " [%[^]]]%n", value_str, &readed) != 1)
                 {
-                    if (sscanf(buffer, " :%d%n", &value, &readed) != 1)              //проверка на jmp
+                    if (sscanf(buffer, " :%d%n", &value, &readed) != 1)          //проверка на jmp и call
                     {
                         if (sscanf(buffer, " %s%n", value_str, &readed) != 1)
                         {

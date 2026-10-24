@@ -12,11 +12,10 @@ typedef int vm_elem_t;
 
 #include "colours.hpp"
 #include "../commands/commands.hpp" //вставка enum с командами
+#include "const.hpp"                //файл с константами
 
 //----------------------------------------------------------------------------
 const char* const FILE_IN       = "../src/code.txt";
-const int REGISTERS_CAPACITY    = 5;
-const int RAM_CAPACITY          = 100;
 
 //----------------------------------------------------------------------------
 enum vm_status
@@ -33,6 +32,7 @@ struct processor
     size_t ip;
     vm_elem_t registers[REGISTERS_CAPACITY];
     stack_lifo_t* data_stk;
+    stack_lifo_t* ret_stk;
     vm_elem_t* ram;
 };
 
@@ -61,6 +61,9 @@ vm_status vm_jb(processor* proc, int line);
 vm_status vm_jbe(processor* proc, int line);
 vm_status vm_je(processor* proc, int line);
 vm_status vm_jne(processor* proc, int line);
+
+vm_status vm_call(processor* proc, int line);
+vm_status vm_ret(processor* proc, int line);
 
 vm_status vm_pushm(processor* pproc, int line);
 vm_status vm_popm(processor* pproc, int line);

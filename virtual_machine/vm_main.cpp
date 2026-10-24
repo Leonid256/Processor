@@ -28,12 +28,14 @@ int main()
         vm_hlt, vm_add, vm_sub, vm_div, vm_out, vm_mul, vm_in, 
         vm_push, vm_pushr, vm_popr, 
         vm_jmp, vm_ja, vm_jae, vm_jb, vm_jbe, vm_je, vm_jne,
+        vm_call, vm_ret,
         vm_pushm, vm_popm,
     };
 
 
     stack_status stk_status = SUCCESS;
     stack_lifo_t stk = {};
+    stack_lifo_t ret = {};
 
     size_t file_len = len_of_file(FILE_IN);
     size_t count = file_len;
@@ -43,10 +45,12 @@ int main()
     proc.bite_code = (vm_elem_t*) calloc(count + 2, sizeof(vm_elem_t));
     proc.ip = 0;
     proc.data_stk = &stk;
+    proc.ret_stk = &ret;
     proc.ram = (vm_elem_t*) calloc(RAM_CAPACITY, sizeof(vm_elem_t));
 
     stk_status = STACK_INIT(proc.data_stk, START_CAPACITY);
     stk_status = STACK_DUMP(proc.data_stk);
+    stk_status = STACK_INIT(proc.ret_stk, START_CAPACITY);
 
     PRINT_STACK_STATUS(stk_status);
     PRINT_STATUS_VM(&proc);
@@ -70,8 +74,10 @@ int main()
 
     stk_status = STACK_DUMP(proc.data_stk);
     stk_status = STACK_DESTROY(proc.data_stk);
+    stk_status = STACK_DESTROY(proc.ret_stk);
 
     free(proc.bite_code);
+    free(proc.ram);
 
     PRINT_STACK_STATUS(stk_status);
     PRINT_STATUS_VM(&proc);

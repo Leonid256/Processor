@@ -10,14 +10,13 @@ typedef int vm_elem_t;
 #include <sys/stat.h>
 
 #include "colours.hpp"
-#include "../commands/commands.hpp" //вставка enum с командами и COMMANDS
+#include "../commands/commands.hpp"             //вставка enum с командами и COMMANDS
+#include "../virtual_machine/const.hpp"         //файл с константами
 
 //----------------------------------------------------------------------------
 const char* const FILE_ASM      = "../src/code.asm";
 const char* const FILE_BITE     = "../src/code.txt";
 const vm_elem_t BUFFER_SIZE     = 10 * sizeof(vm_elem_t);
-const int REGISTERS_CAPACITY    = 5;
-const int LABELS_SIZE           = 10;
 
 //----------------------------------------------------------------------------
 

@@ -10,11 +10,10 @@ typedef int disasm_elem_t;
 
 #include "colours.hpp"
 #include "../commands/commands.hpp" //вставка enum с командами
+#include "../virtual_machine/const.hpp"         //файл с константами
 
 //----------------------------------------------------------------------------
 const char* const FILE_IN       = "../src/code.txt";
-const int REGISTERS_CAPACITY    = 5;
-const int RAM_CAPACITY          = 100;
 const char* const FILE_EXIT     = "../src/exit_code.asm";
 
 extern FILE* file_exit;

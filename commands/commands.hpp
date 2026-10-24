@@ -21,14 +21,16 @@ enum vm_command
     JBE   = 14,
     JE    = 15,
     JNE   = 16,
-    PUSHM = 17,
-    POPM  = 18,
+    CALL  = 17,
+    RET   = 18,
+    PUSHM = 19,
+    POPM  = 20,
 };
 
-const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "IN", "PUSH", "PUSHR", "POPR", "JMP", "JA", "JAE", "JB", "JBE", "JE", "JNE", "PUSHM", "POPM", };
+const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "IN", "PUSH", "PUSHR", "POPR", "JMP", "JA", "JAE", "JB", "JBE", "JE", "JNE", "CALL", "RET", "PUSHM", "POPM", };
 
-const int len_of_commands_array = 19;
+const int len_of_commands_array = 21;
 
-const bool ARGS[] = {false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, };
+const bool ARGS[] = {false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, false, true, true, };
 
 #endif
