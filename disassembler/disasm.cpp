@@ -37,6 +37,7 @@ disasm_status txt_to_mass(const char* name, processor* proc)
         if (q == 1)
             (proc -> bite_code)[i++] = elem;
     }
+    proc -> len_bite_code = i;
 
     fclose(file_txt);
 
@@ -51,7 +52,7 @@ disasm_status disasm_hlt(processor* proc, int line)
     (proc -> ip)++;
     (void)line;
 
-    return DISASM_END_SECS;
+    return DISASM_SUCCESS;
 }
 
 //----------------------------------------------------------------------------
@@ -98,6 +99,17 @@ disasm_status disasm_out(processor* proc, int line)
 disasm_status disasm_mul(processor* proc, int line)
 {
     fprintf(file_exit, "MUL\n");
+
+    (proc -> ip)++;
+
+    return DISASM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+disasm_status disasm_in(processor* proc, int line)
+{
+    (void)line;
+    fprintf(file_exit, "IN\n");
 
     (proc -> ip)++;
 
@@ -199,6 +211,28 @@ disasm_status disasm_jne(processor* proc, int line)
 }
 
 //----------------------------------------------------------------------------
+disasm_status disasm_call(processor* proc, int line)
+{
+    (void)line;
+    fprintf(file_exit, "CALL %d\n", (proc -> bite_code)[proc -> ip + 1]);
+
+    (proc -> ip) += 2;
+
+    return DISASM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+disasm_status disasm_ret(processor* proc, int line)
+{
+    fprintf(file_exit, "RET\n");
+
+    (proc -> ip)++;
+    (void)line;
+
+    return DISASM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
 disasm_status disasm_pushm(processor* proc, int line)
 {
     fprintf(file_exit, "PUSHM [%s]\n", registers_array[(proc -> bite_code)[proc -> ip + 1]]);
@@ -220,6 +254,8 @@ disasm_status disasm_popm(processor* proc, int line)
 disasm_status disasm_command(processor* proc, func_arr* arr, int line)
 {
     disasm_status disasm_stat = DISASM_SUCCESS;
+    if (proc -> ip >= proc -> len_bite_code)
+        return DISASM_END_SECS;
     disasm_elem_t command = (proc -> bite_code)[proc -> ip];
 
     disasm_stat = arr[command](proc, line);

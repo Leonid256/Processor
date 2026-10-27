@@ -30,6 +30,7 @@ struct processor
 {
     disasm_status prog_status;
     disasm_elem_t* bite_code;
+    size_t len_bite_code;
     size_t ip;
     disasm_elem_t registers[REGISTERS_CAPACITY];
     disasm_elem_t* ram;
@@ -49,6 +50,7 @@ disasm_status disasm_sub(processor* proc, int line);
 disasm_status disasm_div(processor* proc, int line);
 disasm_status disasm_out(processor* proc, int line);
 disasm_status disasm_mul(processor* proc, int line);
+disasm_status disasm_in(processor* proc, int line);
 disasm_status disasm_push(processor* proc, int line);
 disasm_status disasm_pushr(processor* proc, int line);
 disasm_status disasm_popr(processor* proc, int line);
@@ -60,6 +62,9 @@ disasm_status disasm_jb(processor* proc, int line);
 disasm_status disasm_jbe(processor* proc, int line);
 disasm_status disasm_je(processor* proc, int line);
 disasm_status disasm_jne(processor* proc, int line);
+
+disasm_status disasm_call(processor* proc, int line);
+disasm_status disasm_ret(processor* proc, int line);
 
 disasm_status disasm_pushm(processor* pproc, int line);
 disasm_status disasm_popm(processor* pproc, int line);
