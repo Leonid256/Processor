@@ -159,7 +159,6 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
             }
             else
             {
-                
                 if (sscanf(buffer, " [%[^]]]%n", value_str, &readed) != 1)
                 {
                     if (sscanf(buffer, " :%d%n", &value, &readed) != 1)          //проверка на jmp и call
@@ -182,7 +181,7 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
                 }
                 buffer += readed;
 
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < (int)(sizeof(registers_array) / sizeof(registers_array[0])); i++)
                 {
                     if (strcmp(value_str, registers_array[i]) == 0)
                     {
@@ -204,5 +203,6 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
 
     return ASM_SUCCESS;
 }
+
 //----------------------------------------------------------------------------
 #endif

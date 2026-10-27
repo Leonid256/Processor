@@ -1,0 +1,74 @@
+//Вывод числа Фибоначчи
+IN
+POPR cx
+PUSH 1
+POPR dx
+
+PUSH 0
+POPR ax
+PUSH 1
+POPR bx
+
+:2
+:1
+PUSHR cx
+PUSHR dx
+JAE :3
+
+PUSHR dx
+PUSH 1
+ADD
+POPR dx
+
+PUSHR bx
+POPR sr
+
+PUSHR ax
+PUSHR bx
+ADD
+POPR bx
+
+PUSHR sr
+POPR ax
+
+JMP :1
+:3
+PUSHR bx
+OUT
+HLT
+
+
+//-------
+//-------
+//Вывод факториала числа
+IN
+POPR cx
+
+PUSHR ax
+PUSH 1
+ADD
+POPR ax
+
+CALL :2
+PUSHR ax
+OUT
+HLT
+
+:2
+:1
+PUSHR bx
+PUSH 1
+ADD
+POPR bx
+
+PUSHR bx
+PUSHR ax
+MUL
+
+POPR ax
+
+PUSHR bx
+PUSHR cx
+JA :1
+
+RET
