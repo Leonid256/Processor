@@ -26,7 +26,7 @@ enum asm_status
     ASM_PIZDA     = 6767
 };
 
-const char* const registers_array[REGISTERS_CAPACITY] = {"sr", "ax", "bx", "cx", "dx"};
+const char* const registers_array[REGISTERS_CAPACITY] = {"ax", "bx", "cx", "dx", "sr"};
 
 //----------------------------------------------------------------------------
 asm_status open_files(FILE* &file_asm, FILE* &file_bite, int line);
