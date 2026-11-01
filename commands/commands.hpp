@@ -33,4 +33,11 @@ const int len_of_commands_array = 21;
 
 const bool ARGS[] = {false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, false, true, true, };
 
+enum argument_type
+{
+    ARG_DIGIT      = 1,
+    ARG_REGISTER   = 2,
+    ARG_REG_MEMORY = 3,
+};
+
 #endif

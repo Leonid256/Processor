@@ -51,6 +51,15 @@ int main()
     fprintf(file, "};\n\n");
 
 
+    //enum argument_type
+    int arg_type_num = 1;
+    fprintf(file, "enum argument_type\n");
+    fprintf(file, "{\n");
+    fprintf(file, "    ARG_DIGIT      = %d,\n", arg_type_num++);
+    fprintf(file, "    ARG_REGISTER   = %d,\n", arg_type_num++);
+    fprintf(file, "    ARG_REG_MEMORY = %d,\n", arg_type_num++);
+    fprintf(file, "};\n\n");
+
     fprintf(file, "#endif\n");
 
     fclose(file);

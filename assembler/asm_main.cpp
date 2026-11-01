@@ -8,11 +8,11 @@ int main()
 
     asm_status asm_stat = ASM_SUCCESS;
 
-    asm_stat = open_files(file_asm, file_bite, __LINE__);
+    asm_stat = OPEN_FILES(file_asm, file_bite);
 
     int labels[LABELS_SIZE] = {-1};
 
-    print_asm_stat(asm_stat, __LINE__);
+    PRINT_ASM_STAT(asm_stat);
 
     size_t len = (size_t)len_of_file(FILE_ASM);
     char* buffer_0 = (char*) calloc(len + 2 * sizeof(vm_elem_t), sizeof(vm_elem_t));
@@ -32,7 +32,7 @@ int main()
 
     free(buffer_0);
 
-    print_asm_stat(asm_stat, __LINE__);
+    PRINT_ASM_STAT(asm_stat);
 
 }
 
