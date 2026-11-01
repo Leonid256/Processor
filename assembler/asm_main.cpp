@@ -10,7 +10,7 @@ int main()
 
     asm_stat = OPEN_FILES(file_asm, file_bite);
 
-    int labels[LABELS_SIZE] = {-1};
+    size_t labels[LABELS_SIZE] = {0};
 
     PRINT_ASM_STAT(asm_stat);
 

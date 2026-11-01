@@ -51,14 +51,12 @@ int main()
     fprintf(file, "};\n\n");
 
 
-    //enum argument_type
-    int arg_type_num = 1;
-    fprintf(file, "enum argument_type\n");
-    fprintf(file, "{\n");
-    fprintf(file, "    ARG_DIGIT      = %d,\n", arg_type_num++);
-    fprintf(file, "    ARG_REGISTER   = %d,\n", arg_type_num++);
-    fprintf(file, "    ARG_REG_MEMORY = %d,\n", arg_type_num++);
-    fprintf(file, "};\n\n");
+    //битовые маски для битовой записи команды
+    fprintf(file, "//битовые маски для битовой записи команды\n");
+    fprintf(file, "#define ARG_NUMBER   0b00100000\n");
+    fprintf(file, "#define ARG_REGISTER 0b01000000\n");
+    fprintf(file, "#define ARG_MEMORY   0b10000000\n");
+    fprintf(file, "\n");
 
     fprintf(file, "#endif\n");
 

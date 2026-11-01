@@ -33,11 +33,9 @@ const int len_of_commands_array = 21;
 
 const bool ARGS[] = {false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, false, true, true, };
 
-enum argument_type
-{
-    ARG_DIGIT      = 1,
-    ARG_REGISTER   = 2,
-    ARG_REG_MEMORY = 3,
-};
+//битовые маски для битовой записи команды
+#define ARG_NUMBER   0b00100000
+#define ARG_REGISTER 0b01000000
+#define ARG_MEMORY   0b10000000
 
 #endif

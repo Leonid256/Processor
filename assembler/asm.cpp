@@ -7,7 +7,7 @@
 asm_status open_files(FILE* &file_asm, FILE* &file_bite, const char* file, int line)
 {
     file_asm  = fopen(FILE_ASM, "r");
-    file_bite = fopen(FILE_BITE, "w");
+    file_bite = fopen(FILE_BITE, "wb");
     if (file_asm == NULL)
     {
         printf(RED "Error opening assembler file in %s:%d\n" CRESET, file, line);
@@ -39,7 +39,8 @@ void print_asm_stat(asm_status asm_stat, const char* file, int line)
 ssize_t len_of_file(const char* name)
 {
     struct stat file_info;
-    stat(name, &file_info);
+    if (stat(name, &file_info) != 0)
+    return -1;
 
     if (file_info.st_size <= 0)
         return 0;
@@ -50,17 +51,19 @@ ssize_t len_of_file(const char* name)
 //----------------------------------------------------------------------------
 size_t asm_to_buffer(char* buffer, FILE* file, size_t len)
 {
-    len = (size_t)fread(buffer, sizeof(vm_elem_t), (size_t)len, file);
+    size_t readed = fread(buffer, 1, len, file);
+    buffer[readed] = '\0';
 
-    return len;
+    return readed;
 }
 
 //----------------------------------------------------------------------------
-asm_status asm_first_go(char* buffer, int labels[])
+asm_status asm_first_go(char* buffer, size_t labels[])
 {
     char command[BUFFER_SIZE] = "";
     char value_str[BUFFER_SIZE] = "";
-    int value = 0, line = 1, index = 0;
+    int value = 0, line = 1;
+    size_t index = 0;
 
     int readed = 0;
 
@@ -71,42 +74,50 @@ asm_status asm_first_go(char* buffer, int labels[])
         if (command[0] == ':')                                  //обработка меток
         {
             sscanf(command, " :%d%n", &value, &readed);
+            if (value > LABELS_SIZE)
+                return ASM_PIZDA;
             labels[value] = index;
 
             continue;
         }
 
-        int command_id = 0;
+        bool found = false;
+        uint8_t command_id = 0;
         for (int i = 0; i < len_of_commands_array; i++)
         {
             if (strcmp(command, COMMANDS[i]) == 0)
             {
-                command_id = i;
+                command_id = (uint8_t)i;
+                found = true;
                 break;
             }
         }
+        if (!found)
+            return ASM_PIZDA;
 
+        index++;
         if (ARGS[command_id])
         {
-            if (sscanf(buffer, " %d%n", &value, &readed) == 1) buffer += readed;
+            if (sscanf(buffer, " %d%n", &value, &readed) == 1 || sscanf(buffer, " :%d%n", &value, &readed) == 1)
+            {
+                buffer += readed;
+                index += 4;
+            }
             else
             {
-                if (sscanf(buffer, " [%[^]]]%n", value_str, &readed) != 1)
+                if (sscanf(buffer, " [%9[^]]]%n", value_str, &readed) != 1)
                 {
-                    if (sscanf(buffer, " %s%n", value_str, &readed) != 1)
+                    if (sscanf(buffer, " %9s%n", value_str, &readed) != 1)
                     {
                         printf(RED "Error in %d line in input file(code.asm) in %s:%d\n" CRESET, 
                                     line, __FILE__, __LINE__);
                         return ASM_PIZDA;
                     }
                 }
-
                 buffer += readed;
+                index++;
             }
-
-            index += 2;
         }
-        else index += 1;
 
         line++;
     }
@@ -115,15 +126,18 @@ asm_status asm_first_go(char* buffer, int labels[])
 }
 
 //----------------------------------------------------------------------------
-asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
+asm_status asm_second_go(char* buffer, size_t labels[], FILE* file_bite)
 {
     char command[BUFFER_SIZE] = "";
     char value_str[BUFFER_SIZE] = "";
-    int value = 0, line = 1;
+    int value = 0;
+    uint8_t value_r = 0;
+    size_t value_l = 0;
+    int line = 1;
 
     int readed = 0;
 
-    while (sscanf(buffer, " %s%n", command, &readed) > 0)
+    while (sscanf(buffer, " %9s%n", command, &readed) > 0)
     {
         buffer += readed;
 
@@ -134,74 +148,173 @@ asm_status asm_second_go(char* buffer, int labels[], FILE* file_bite)
             continue;
         }
 
-        int command_id = -1;                                    //определение номера команды
+        bool found = false;
+        uint8_t command_id = 0;                                    //определение номера команды
         for (int i = 0; i < len_of_commands_array; i++)
         {
             if (strcmp(command, COMMANDS[i]) == 0)
             {
-                command_id = i;
+                command_id = (uint8_t)i;
+                found = true;
                 break;
             }
         }
-        if (command_id == -1)
-        {
-            printf(RED "Error: uncnown command\n" CRESET);
+        if (!found)
             return ASM_PIZDA;
+
+
+        assembler ebasm = {};
+        ebasm.buffer = buffer;
+        ebasm.command_id = command_id;
+        ebasm.file_bite = file_bite;
+        
+        if (command_id == PUSH || command_id == POPR)           //отделение PUSH и POP //TODO: POPR -> POP
+        {
+            if (asm_push_pop(&ebasm) != ASM_SUCCESS)
+                return ASM_PIZDA;
+
+            buffer = ebasm.buffer;
+
+            continue;
         }
 
 
         if (ARGS[command_id])
         {
-            if (sscanf(buffer, " %d%n", &value, &readed) == 1)
+            if (sscanf(buffer, " %9d%n", &value, &readed) == 1)
             {
-                fprintf(file_bite, "%d %d\n", command_id, value);
                 buffer += readed;
+                command_id |= ARG_NUMBER;
             }
             else
             {
-                if (sscanf(buffer, " [%[^]]]%n", value_str, &readed) != 1)
+                if (sscanf(buffer, " [%9[^]]]%n", value_str, &readed) != 1)
                 {
-                    if (sscanf(buffer, " :%d%n", &value, &readed) != 1)          //проверка на jmp и call
+                    if (sscanf(buffer, " :%9zu%n", &value_l, &readed) != 1)          //проверка на jmp и call
                     {
-                        if (sscanf(buffer, " %s%n", value_str, &readed) != 1)
+                        if (sscanf(buffer, " %9s%n", value_str, &readed) != 1)
                         {
                             printf(RED "Error in %d line in input file(code.asm) in %s:%d\n" CRESET, 
                                         line, __FILE__, __LINE__);
                             return ASM_PIZDA;
                         }
+                        else
+                        {
+                            if (!registers_id(value_str, &value_r))
+                                return ASM_PIZDA;
+                            command_id |= ARG_REGISTER;
+                        }
                     }
                     else
                     {
-                        value = labels[value];
-                        fprintf(file_bite, "%d %d\n", command_id, value);
-
-                        buffer += readed;
-                        continue;
+                        value = (int)labels[value_l];
+                        command_id |= ARG_NUMBER;
                     }
+                }
+                else
+                {
+                    command_id |= ARG_MEMORY;
+
+                    if (!registers_id(value_str, &value_r))
+                        return ASM_PIZDA;
                 }
                 buffer += readed;
-
-                for (int i = 0; i < (int)(sizeof(registers_array) / sizeof(registers_array[0])); i++)
-                {
-                    if (strcmp(value_str, registers_array[i]) == 0)
-                    {
-                        value = i;
-                        break;
-                    }
-                }
-
-                fprintf(file_bite, "%d %d\n", command_id, value);
             }
         }
-        else
+
+        if (fwrite(&command_id, sizeof(command_id), 1, file_bite) != 1)
+            return ASM_PIZDA;
+
+        if ((command_id & ARG_NUMBER) == ARG_NUMBER)
         {
-            fprintf(file_bite, "%d\n", command_id);
+            if (fwrite(&value, sizeof(value), 1, file_bite) != 1)
+                return ASM_PIZDA;
+        }
+        else if ((command_id & ARG_MEMORY) == ARG_MEMORY || (command_id & ARG_REGISTER) == ARG_REGISTER)
+        {
+            if (fwrite(&value_r, sizeof(value_r), 1, file_bite) != 1)
+                return ASM_PIZDA;
         }
 
         line++;
     }
 
     return ASM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+asm_status asm_push_pop(assembler* ebasm)
+{
+    char value_str[BUFFER_SIZE] = "";
+    int value = 0;
+    uint8_t value_r = 0;
+
+    int readed = 0;
+
+    if (sscanf(ebasm -> buffer, " %d%n", &value, &readed) == 1)          //аргумент - число
+    {
+        ebasm -> buffer += readed;
+
+        ebasm -> command_id |= ARG_NUMBER;
+    }
+    else
+    {
+        if (sscanf(ebasm -> buffer, " [%9[^]]]%n", value_str, &readed) != 1)
+        {
+            if (sscanf(ebasm -> buffer, " %9s%n", value_str, &readed) != 1)
+            {
+                printf(RED "Error in line in input file(code.asm)\n" CRESET);
+                return ASM_PIZDA;
+            }
+            else                    //аргумент - _x
+            {
+                if (!registers_id(value_str, &value_r))
+                    return ASM_PIZDA;
+
+                ebasm -> command_id |= ARG_REGISTER;
+            }
+        }
+        else                        //аргумент - [_x] (memory)
+        {
+            if (!registers_id(value_str, &value_r))
+                return ASM_PIZDA;
+
+            ebasm -> command_id |= ARG_MEMORY;
+        }
+        ebasm -> buffer += readed;
+    }
+
+    if (fwrite(&ebasm -> command_id, sizeof(ebasm -> command_id), 1, ebasm -> file_bite) != 1)
+        return ASM_PIZDA;
+
+    if ((ebasm -> command_id & ARG_NUMBER) == ARG_NUMBER)
+    {
+        if (fwrite(&value, sizeof(value), 1, ebasm -> file_bite) != 1)
+            return ASM_PIZDA;
+    }
+    else
+    {
+        if (fwrite(&value_r, sizeof(value_r), 1, ebasm -> file_bite) != 1)
+            return ASM_PIZDA;
+    }
+
+    return ASM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+bool registers_id(char* value_str, uint8_t* result)
+{
+    for (uint8_t i = 0; i < (int)(sizeof(registers_array) / sizeof(registers_array[0])); i++)
+    {
+        if (strcmp(value_str, registers_array[i]) == 0)
+        {
+            *result = i;
+            return true;
+        }
+    }
+
+    printf(RED "Error in register in input asm-file\n" CRESET);
+    return false;
 }
 
 //----------------------------------------------------------------------------
