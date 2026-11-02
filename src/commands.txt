@@ -9,8 +9,7 @@ X(IN, false)
 
 X(PUSH, true)
 
-X(PUSHR, true)
-X(POPR, true)
+X(POP, true)
 
 X(JMP, true)
 X(JA, true)
@@ -22,6 +21,3 @@ X(JNE, true)
 
 X(CALL, true)
 X(RET, false)
-
-X(PUSHM, true)
-X(POPM, true)

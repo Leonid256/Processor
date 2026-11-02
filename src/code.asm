@@ -1,38 +1,31 @@
 IN
-POPR cx
+POP cx
 
+PUSH ax
 PUSH 1
-POPR dx
+ADD
+POP ax
 
-PUSH 0
-POPR ax
-PUSH 1
-POPR bx
+CALL :2
+PUSH ax
+OUT
+HLT
 
 :2
 :1
-PUSHR cx
-PUSHR dx
-JAE :3
-
-PUSHR dx
+PUSH bx
 PUSH 1
 ADD
-POPR dx
+POP bx
 
-PUSHR bx
-POPR sr
+PUSH bx
+PUSH ax
+MUL
 
-PUSHR ax
-PUSHR bx
-ADD
-POPR bx
+POP ax
 
-PUSHR sr
-POPR ax
+PUSH bx
+PUSH cx
+JB :1
 
-JMP :1
-:3
-PUSHR bx
-OUT
-HLT
+RET

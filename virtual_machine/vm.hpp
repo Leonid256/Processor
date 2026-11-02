@@ -9,13 +9,14 @@ typedef int vm_elem_t;
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <string.h>
 
 #include "colours.hpp"
 #include "../commands/commands.hpp" //вставка enum с командами
 #include "const.hpp"                //файл с константами
 
 //----------------------------------------------------------------------------
-const char* const FILE_IN       = "../src/code.txt";
+const char* const FILE_IN       = "../src/code.bin";
 
 //----------------------------------------------------------------------------
 enum vm_status
@@ -28,12 +29,18 @@ enum vm_status
 struct processor
 {
     vm_status prog_status;
-    vm_elem_t* bite_code;
+    uint8_t* bite_code;
+    size_t bite_code_size;
+
     size_t ip;
+    bool is_number;
+    bool is_register;
+    bool is_memory;
+
     vm_elem_t registers[REGISTERS_CAPACITY];
     stack_lifo_t* data_stk;
     stack_lifo_t* ret_stk;
-    vm_elem_t* ram;
+    int* ram;
 };
 
 typedef vm_status (*func_arr)(processor*, int);
@@ -51,8 +58,8 @@ vm_status vm_mul(processor* proc, int line);
 vm_status vm_in(processor* proc, int line);
 
 vm_status vm_push(processor* proc, int line);
-vm_status vm_pushr(processor* proc, int line);
-vm_status vm_popr(processor* proc, int line);
+// vm_status vm_pushr(processor* proc, int line);
+vm_status vm_pop(processor* proc, int line);
 
 vm_status vm_jmp(processor* pproc, int line);
 vm_status vm_ja(processor* proc, int line);
@@ -65,8 +72,8 @@ vm_status vm_jne(processor* proc, int line);
 vm_status vm_call(processor* proc, int line);
 vm_status vm_ret(processor* proc, int line);
 
-vm_status vm_pushm(processor* pproc, int line);
-vm_status vm_popm(processor* pproc, int line);
+// vm_status vm_pushm(processor* pproc, int line);
+// vm_status vm_popm(processor* pproc, int line);
 
 vm_status vm_command(processor* proc, func_arr* arr, int line);
 void print_status_vm(processor* proc, const char* FILE, int line);
@@ -74,6 +81,7 @@ vm_status print_vm_ram(processor* proc, int line);
 
 //----------------------------------------------------------------------------
 #define VM_SPEC_TYPEDEF "%d"
+#define CMD_MASK 0b00011111
 
 #define VM_COMMAND(proc, arr) vm_command(proc, arr, __LINE__)
 #define PRINT_STATUS_VM(proc) print_status_vm(proc, __FILE__, __LINE__)

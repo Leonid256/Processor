@@ -12,26 +12,23 @@ enum vm_command
     MUL   = 5,
     IN    = 6,
     PUSH  = 7,
-    PUSHR = 8,
-    POPR  = 9,
-    JMP   = 10,
-    JA    = 11,
-    JAE   = 12,
-    JB    = 13,
-    JBE   = 14,
-    JE    = 15,
-    JNE   = 16,
-    CALL  = 17,
-    RET   = 18,
-    PUSHM = 19,
-    POPM  = 20,
+    POP   = 8,
+    JMP   = 9,
+    JA    = 10,
+    JAE   = 11,
+    JB    = 12,
+    JBE   = 13,
+    JE    = 14,
+    JNE   = 15,
+    CALL  = 16,
+    RET   = 17,
 };
 
-const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "IN", "PUSH", "PUSHR", "POPR", "JMP", "JA", "JAE", "JB", "JBE", "JE", "JNE", "CALL", "RET", "PUSHM", "POPM", };
+const char* const COMMANDS[] = {"HLT", "ADD", "SUB", "DIV", "OUT", "MUL", "IN", "PUSH", "POP", "JMP", "JA", "JAE", "JB", "JBE", "JE", "JNE", "CALL", "RET", };
 
-const int len_of_commands_array = 21;
+const int len_of_commands_array = 18;
 
-const bool ARGS[] = {false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, false, true, true, };
+const bool ARGS[] = {false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, false, };
 
 //битовые маски для битовой записи команды
 #define ARG_NUMBER   0b00100000

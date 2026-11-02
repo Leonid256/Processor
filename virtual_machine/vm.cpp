@@ -20,7 +20,7 @@ size_t len_of_file(const char* name)
 vm_status txt_to_mass(const char* name, processor* proc)
 {
     FILE* file_txt = NULL;
-    file_txt = fopen(name, "r");
+    file_txt = fopen(name, "rb");
 
     if (file_txt == NULL)
     {
@@ -28,14 +28,12 @@ vm_status txt_to_mass(const char* name, processor* proc)
         return VM_PIZDA;
     }
 
-    vm_elem_t elem = 0;
+    uint8_t elem = 0;
     size_t i = 0;
-    int q = 0;
-
-    while ((q = fscanf(file_txt, VM_SPEC_TYPEDEF, &elem)) != EOF)
+    while (fread(&elem, sizeof(elem), 1, file_txt) == 1)
     {
-        if (q == 1)
-            (proc -> bite_code)[i++] = elem;
+        proc -> bite_code[i++] = elem;
+        proc -> bite_code_size = i;
     }
 
     fclose(file_txt);
@@ -59,9 +57,9 @@ vm_status vm_add(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     
     if (stack_push((proc -> data_stk), elem_1 + elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
@@ -84,9 +82,9 @@ vm_status vm_sub(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     
     if (stack_push((proc -> data_stk), elem_2 - elem_1, line) != SUCCESS)
         vm_stat = VM_PIZDA;
@@ -109,9 +107,9 @@ vm_status vm_div(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
 
     if (elem_1 == 0)
     {
@@ -158,9 +156,9 @@ vm_status vm_mul(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
 
     if (stack_push((proc -> data_stk), elem_1 * elem_2, line) != SUCCESS)
         vm_stat = VM_PIZDA;
@@ -182,7 +180,8 @@ vm_status vm_in(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     vm_elem_t value = 0;
-    scanf("%d", &value);
+    if (scanf("%d", &value) != 1)
+        return VM_PIZDA;
 
     if (stack_push((proc -> data_stk), value, line) != SUCCESS)
         vm_stat = VM_PIZDA;
@@ -201,56 +200,86 @@ vm_status vm_in(processor* proc, int line)
 //----------------------------------------------------------------------------
 vm_status vm_push(processor* proc, int line)
 {
-    vm_status vm_stat = VM_SUCCESS;
-
-    if (stack_push((proc -> data_stk), (proc -> bite_code)[proc -> ip + 1], line) != SUCCESS)
-        vm_stat = VM_PIZDA;
-    
-    if (vm_stat == VM_PIZDA)
+    if (proc -> is_number)
     {
-        printf(RED "Error in vm_push:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+        int32_t value = 0;
+        memcpy(&value, proc -> bite_code + proc -> ip + 1, sizeof(int));
+
+        if (stack_push((proc -> data_stk), value, line) != SUCCESS)
+        {
+            printf(RED "Error in vm_push:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+            return VM_PIZDA;
+        }
+
+        (proc -> ip) += 5;
+    }
+    else if (proc -> is_register)
+    {
+        if ((proc -> bite_code)[proc -> ip + 1] > REGISTERS_CAPACITY) return VM_PIZDA;
+        if (stack_push((proc -> data_stk), (proc -> registers)[(proc -> bite_code)[proc -> ip + 1]], line) != SUCCESS)
+        {
+            printf(RED "Error in vm_push:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+            return VM_PIZDA;
+        }   
+
+        (proc -> ip) += 2;
+    }
+    else if (proc -> is_memory)
+    {
+        if ((proc -> bite_code)[proc -> ip + 1] > REGISTERS_CAPACITY) return VM_PIZDA;
+        int index = (proc -> registers)[(proc -> bite_code)[proc -> ip + 1]];
+
+        if (index > RAM_CAPACITY) return VM_PIZDA;
+        if (stack_push((proc -> data_stk), (proc -> ram)[index], line) != SUCCESS)
+        {
+            printf(RED "Error in vm_push:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+            return VM_PIZDA;
+        }
+
+        (proc -> ip) += 2;
+    }
+    else
+    {
+        printf(RED "Error in vm_push(wrong argument):(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
         return VM_PIZDA;
     }
-
-    (proc -> ip) += 2;
 
     return VM_SUCCESS;
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_pushr(processor* proc, int line)
+vm_status vm_pop(processor* proc, int line)
 {
-    vm_status vm_stat = VM_SUCCESS;
-
-    if (stack_push((proc -> data_stk), (proc -> registers)[(proc -> bite_code)[proc -> ip + 1]], line) != SUCCESS)
-        vm_stat = VM_PIZDA;
-    
-    if (vm_stat == VM_PIZDA)
+    if (proc -> is_register)
     {
-        printf(RED "Error in vm_pushr:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+        if ((proc -> bite_code)[proc -> ip + 1] > REGISTERS_CAPACITY) return VM_PIZDA;
+        if (stack_pop((proc -> data_stk), &(proc -> registers)[(proc -> bite_code)[proc -> ip + 1]], line) != SUCCESS)
+        {
+            printf(RED "Error in vm_pop:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+            return VM_PIZDA;
+        }
+
+        (proc -> ip) += 2;
+    }
+    else if (proc -> is_memory)
+    {
+        if ((proc -> bite_code)[proc -> ip + 1] > REGISTERS_CAPACITY) return VM_PIZDA;
+        int index = (proc -> registers)[(proc -> bite_code)[proc -> ip + 1]];
+
+        if (index > RAM_CAPACITY) return VM_PIZDA;
+        if (stack_pop((proc -> data_stk), &(proc -> ram)[index], line) != SUCCESS)
+        {
+            printf(RED "Error in vm_pop:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+            return VM_PIZDA;
+        }
+
+        (proc -> ip) += 2;
+    }
+    else
+    {
+        printf(RED "Error in vm_pop(wrong argument):(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
         return VM_PIZDA;
     }
-
-    (proc -> ip) += 2;
-
-    return VM_SUCCESS;
-}
-
-//----------------------------------------------------------------------------
-vm_status vm_popr(processor* proc, int line)
-{
-    vm_status vm_stat = VM_SUCCESS;
-
-    if (stack_pop((proc -> data_stk), &(proc -> registers)[(proc -> bite_code)[proc -> ip + 1]], line) != SUCCESS)
-        vm_stat = VM_PIZDA;
-    
-    if (vm_stat == VM_PIZDA)
-    {
-        printf(RED "Error in vm_popr:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
-        return VM_PIZDA;
-    }
-
-    (proc -> ip) += 2;
 
     return VM_SUCCESS;
 }
@@ -258,11 +287,19 @@ vm_status vm_popr(processor* proc, int line)
 //----------------------------------------------------------------------------
 vm_status vm_jmp(processor* proc, int line)
 {
-    int address = (proc -> bite_code)[proc -> ip + 1];
+    (void) line;
+    
+    int32_t address = 0;
+    memcpy(&address, proc -> bite_code + proc -> ip + 1, sizeof(address));
+    if (address < 0 || (size_t)address >= proc -> bite_code_size)
+    {
+        printf(RED "Error in vm_jmp:(%s)%s:%d\n" CRESET, __func__, __FILE__, __LINE__);
+        return VM_PIZDA;
+    }
 
     if (address < 0)
     {
-        printf(RED "Error in vm_jmp:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
+        printf(RED "Error in vm_jmp:(%s)%s:%d\n" CRESET, __func__, __FILE__, __LINE__);
         return VM_PIZDA;
     }
 
@@ -278,17 +315,17 @@ vm_status vm_ja(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
 
-    if (elem_1 > elem_2)
+    if (elem_1 < elem_2)
     {
         vm_stat = vm_jmp(proc, line);
     }
     else
     {
-        (proc -> ip) += 2;
+        (proc -> ip) += 5;
     }
 
     if (vm_stat == VM_PIZDA)
@@ -307,17 +344,17 @@ vm_status vm_jae(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
 
-    if (elem_1 >= elem_2)
+    if (elem_1 <= elem_2)
     {
         vm_stat = vm_jmp(proc, line);
     }
     else
     {
-        (proc -> ip) += 2;
+        (proc -> ip) += 5;
     }
 
     if (vm_stat == VM_PIZDA)
@@ -336,17 +373,17 @@ vm_status vm_jb(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
 
-    if (elem_1 < elem_2)
+    if (elem_1 > elem_2)
     {
         vm_stat = vm_jmp(proc, line);
     }
     else
     {
-        (proc -> ip) += 2;
+        (proc -> ip) += 5;
     }
 
     if (vm_stat == VM_PIZDA)
@@ -365,17 +402,17 @@ vm_status vm_jbe(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
 
-    if (elem_1 <= elem_2)
+    if (elem_1 >= elem_2)
     {
         vm_stat = vm_jmp(proc, line);
     }
     else
     {
-        (proc -> ip) += 2;
+        (proc -> ip) += 5;
     }
 
     if (vm_stat == VM_PIZDA)
@@ -394,9 +431,9 @@ vm_status vm_je(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
 
     if (elem_1 == elem_2)
     {
@@ -404,7 +441,7 @@ vm_status vm_je(processor* proc, int line)
     }
     else
     {
-        (proc -> ip) += 2;
+        (proc -> ip) += 5;
     }
 
     if (vm_stat == VM_PIZDA)
@@ -423,9 +460,9 @@ vm_status vm_jne(processor* proc, int line)
     vm_status vm_stat = VM_SUCCESS;
 
     if (stack_pop((proc -> data_stk), &elem_1, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
     if (stack_pop((proc -> data_stk), &elem_2, line) != SUCCESS)
-        vm_stat = VM_PIZDA;
+        return VM_PIZDA;
 
     if (elem_1 != elem_2)
     {
@@ -433,7 +470,7 @@ vm_status vm_jne(processor* proc, int line)
     }
     else
     {
-        (proc -> ip) += 2;
+        (proc -> ip) += 5;
     }
 
     if (vm_stat == VM_PIZDA)
@@ -449,14 +486,13 @@ vm_status vm_jne(processor* proc, int line)
 vm_status vm_call(processor* proc, int line)
 {
     (void)line;
-    vm_status vm_stat = VM_SUCCESS;
 
-    if (stack_push((proc -> ret_stk), (int)(proc -> ip + 2), __LINE__) != SUCCESS)
-        vm_stat = VM_PIZDA;
+    if (stack_push((proc -> ret_stk), (int)(proc -> ip + 5), __LINE__) != SUCCESS)
+        return VM_PIZDA;
 
-    int address = (proc -> bite_code)[proc -> ip + 1];
-
-    if (vm_stat == VM_PIZDA || address < 0)
+    int32_t address = 0;
+    memcpy(&address, proc -> bite_code + proc -> ip + 1, sizeof(address));
+    if (address < 0 || (size_t)address >= proc -> bite_code_size)
     {
         printf(RED "Error in vm_call:(%s)%s:%d\n" CRESET, __func__, __FILE__, __LINE__);
         return VM_PIZDA;
@@ -471,11 +507,11 @@ vm_status vm_call(processor* proc, int line)
 vm_status vm_ret(processor* proc, int line)
 {
     (void)line;
-    int address = 0;
+    int32_t address = 0;
     if (stack_pop((proc -> ret_stk), &address, __LINE__) != SUCCESS)
         return VM_PIZDA;
 
-    if (address < 0 )
+    if (address < 0 || (size_t)address >= proc -> bite_code_size)
     {
         printf(RED "Error in vm_ret:(%s)%s:%d\n" CRESET, __func__, __FILE__, __LINE__);
         return VM_PIZDA;
@@ -487,50 +523,14 @@ vm_status vm_ret(processor* proc, int line)
 }
 
 //----------------------------------------------------------------------------
-vm_status vm_pushm(processor* proc, int line)
-{
-    vm_status vm_stat = VM_SUCCESS;
-
-    int index = (proc -> registers)[(proc -> bite_code)[proc -> ip + 1]];
-    if (stack_push((proc -> data_stk), (proc -> ram)[index], line) != SUCCESS)
-        vm_stat = VM_PIZDA;
-    
-    if (vm_stat == VM_PIZDA)
-    {
-        printf(RED "Error in vm_pushm:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
-        return VM_PIZDA;
-    }
-
-    (proc -> ip) += 2;
-
-    return VM_SUCCESS;
-}
-
-//----------------------------------------------------------------------------
-vm_status vm_popm(processor* proc, int line)
-{
-    vm_status vm_stat = VM_SUCCESS;
-
-    int index = (proc -> registers)[(proc -> bite_code)[proc -> ip + 1]];
-    if (stack_pop((proc -> data_stk), &(proc -> ram)[index], line) != SUCCESS)
-        vm_stat = VM_PIZDA;
-    
-    if (vm_stat == VM_PIZDA)
-    {
-        printf(RED "Error in vm_popm:(%s)%s:%d\n" CRESET, __func__, __FILE__, line);
-        return VM_PIZDA;
-    }
-
-    (proc -> ip) += 2;
-
-    return VM_SUCCESS;
-}
-
-//----------------------------------------------------------------------------
 vm_status vm_command(processor* proc, func_arr* arr, int line)
 {
     vm_status vm_stat = VM_SUCCESS;
-    vm_elem_t command = (proc -> bite_code)[proc -> ip];
+    uint8_t command = (proc -> bite_code)[proc -> ip] & CMD_MASK;
+
+    proc -> is_number   = (proc -> bite_code)[proc -> ip] & ARG_NUMBER;
+    proc -> is_register = (proc -> bite_code)[proc -> ip] & ARG_REGISTER;
+    proc -> is_memory   = (proc -> bite_code)[proc -> ip] & ARG_MEMORY;
 
     vm_stat = arr[command](proc, line);
 

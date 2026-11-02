@@ -67,14 +67,15 @@ asm_status asm_first_go(char* buffer, size_t labels[])
 
     int readed = 0;
 
-    while (sscanf(buffer, " %s%n", command, &readed) > 0)
+    while (sscanf(buffer, " %9s%n", command, &readed) > 0)
     {
         buffer += readed;
 
         if (command[0] == ':')                                  //обработка меток
         {
-            sscanf(command, " :%d%n", &value, &readed);
-            if (value > LABELS_SIZE)
+            if (sscanf(command, " :%d%n", &value, &readed) != 1)
+                return ASM_PIZDA;
+            if (value < 0 || value >= LABELS_SIZE)
                 return ASM_PIZDA;
             labels[value] = index;
 
@@ -93,7 +94,10 @@ asm_status asm_first_go(char* buffer, size_t labels[])
             }
         }
         if (!found)
+        {
+            printf("Unknown command: %s, line: %d\n", command, line);
             return ASM_PIZDA;
+        }
 
         index++;
         if (ARGS[command_id])
@@ -109,8 +113,7 @@ asm_status asm_first_go(char* buffer, size_t labels[])
                 {
                     if (sscanf(buffer, " %9s%n", value_str, &readed) != 1)
                     {
-                        printf(RED "Error in %d line in input file(code.asm) in %s:%d\n" CRESET, 
-                                    line, __FILE__, __LINE__);
+                        printf("Wrong argument, command: %s, line: %d\n", command, line);
                         return ASM_PIZDA;
                     }
                 }
@@ -168,7 +171,7 @@ asm_status asm_second_go(char* buffer, size_t labels[], FILE* file_bite)
         ebasm.command_id = command_id;
         ebasm.file_bite = file_bite;
         
-        if (command_id == PUSH || command_id == POPR)           //отделение PUSH и POP //TODO: POPR -> POP
+        if (command_id == PUSH || command_id == POP)           //отделение PUSH и POP
         {
             if (asm_push_pop(&ebasm) != ASM_SUCCESS)
                 return ASM_PIZDA;
@@ -194,8 +197,7 @@ asm_status asm_second_go(char* buffer, size_t labels[], FILE* file_bite)
                     {
                         if (sscanf(buffer, " %9s%n", value_str, &readed) != 1)
                         {
-                            printf(RED "Error in %d line in input file(code.asm) in %s:%d\n" CRESET, 
-                                        line, __FILE__, __LINE__);
+                            printf("Wrong argument, command: %s, line: %d\n", command, line);
                             return ASM_PIZDA;
                         }
                         else
@@ -315,6 +317,21 @@ bool registers_id(char* value_str, uint8_t* result)
 
     printf(RED "Error in register in input asm-file\n" CRESET);
     return false;
+}
+
+//----------------------------------------------------------------------------
+void print_bite_file(FILE* file)
+{
+    rewind(file);
+
+    uint8_t byte = 0;
+    size_t index = 0;
+
+    while (fread(&byte, sizeof(byte), 1, file) == 1)
+    {
+        printf("%04zu: %02X\n", index, byte);
+        index++;
+    }
 }
 
 //----------------------------------------------------------------------------

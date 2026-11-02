@@ -17,9 +17,9 @@ int main()
     size_t len = (size_t)len_of_file(FILE_ASM);
     char* buffer_0 = (char*) calloc(len + 2 * sizeof(vm_elem_t), sizeof(vm_elem_t));
     char* buffer = buffer_0;
-
+    
     asm_to_buffer(buffer_0, file_asm, len);
-
+    
     asm_stat = asm_first_go(buffer, labels);
     
     //second passage//
