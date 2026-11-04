@@ -1,6 +1,6 @@
 Stack init success
 #############
-Errors in stack at (stack_errors_print)stack.cpp:57 :
+Errors in stack at (stack_errors_print)stack.cpp:605 :
 	No errors in stack
 #############
 <------------
@@ -19,9 +19,9 @@ data [0x603000001c34]
 Stack dump success
 Stack init success
 Stack status print success
-Stack push success. Value = -1
+Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -29,7 +29,7 @@ capacity = 5
 size = 1
 data [0x603000001c34]
     {
-     *[0] = -1
+     *[0] = 10
      [1] = 676767(POISON_ELEM)
      [2] = 676767(POISON_ELEM)
      [3] = 676767(POISON_ELEM)
@@ -38,9 +38,9 @@ data [0x603000001c34]
 ------------>
 
 Stack dump success
-Stack pop success. Value = -1
+Stack pop success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -59,7 +59,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 0
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -78,7 +78,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -99,7 +99,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 0
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -118,7 +118,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -137,7 +137,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 18
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -156,7 +156,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 0
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -175,7 +175,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -196,7 +196,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 0
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -215,7 +215,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -234,7 +234,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -253,7 +253,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -274,7 +274,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 1
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -293,7 +293,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -312,7 +312,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -329,9 +329,9 @@ data [0x603000001c34]
 ------------>
 
 Stack dump success
-Stack push success. Value = -1
+Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -340,7 +340,7 @@ size = 2
 data [0x603000001c34]
     {
      *[0] = 1
-     *[1] = -1
+     *[1] = 10
      [2] = 676767(POISON_ELEM)
      [3] = 676767(POISON_ELEM)
      [4] = 676767(POISON_ELEM)
@@ -348,10 +348,1936 @@ data [0x603000001c34]
 ------------>
 
 Stack dump success
-Stack pop success. Value = -1
+Stack pop success. Value = 10
 Stack pop success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 1
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 1
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 1
+Stack push success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 2
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 2
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 2
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 2
+Stack push success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 2
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 2
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 2
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 2
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 2
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 2
+Stack push success. Value = 3
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 3
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 3
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 3
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 3
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 2
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 3
+     *[1] = 2
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 2
+Stack pop success. Value = 3
+Stack push success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 6
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 3
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 3
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 3
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 3
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 3
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 3
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 3
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 3
+Stack push success. Value = 4
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 4
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 4
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 4
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 4
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 4
+     *[1] = 6
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 6
+Stack pop success. Value = 4
+Stack push success. Value = 24
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 24
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 24
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 4
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 4
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 4
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 4
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 4
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 4
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 4
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 4
+Stack push success. Value = 5
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 5
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 5
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 5
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 5
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 24
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 5
+     *[1] = 24
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 24
+Stack pop success. Value = 5
+Stack push success. Value = 120
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 120
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 120
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 5
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 5
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 5
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 5
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 5
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 5
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 5
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 5
+Stack push success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 6
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 6
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 120
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 6
+     *[1] = 120
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 120
+Stack pop success. Value = 6
+Stack push success. Value = 720
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 720
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 720
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 6
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 6
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 6
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 6
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 6
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 6
+Stack push success. Value = 7
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 7
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 7
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 7
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 7
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 720
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 7
+     *[1] = 720
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 720
+Stack pop success. Value = 7
+Stack push success. Value = 5040
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 5040
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 5040
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 7
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 7
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 7
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 7
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 7
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 7
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 7
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 7
+Stack push success. Value = 8
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 8
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 8
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 8
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 8
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 5040
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 8
+     *[1] = 5040
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 5040
+Stack pop success. Value = 8
+Stack push success. Value = 40320
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 40320
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 40320
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 8
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 8
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 8
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 8
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 8
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 8
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 8
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 8
+Stack push success. Value = 9
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 9
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 9
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 9
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 9
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 40320
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 9
+     *[1] = 40320
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 40320
+Stack pop success. Value = 9
+Stack push success. Value = 362880
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 362880
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 362880
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 9
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 9
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 9
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 9
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 9
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 9
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 1
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 9
+     *[1] = 1
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 1
+Stack pop success. Value = 9
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 10
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 10
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 362880
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 10
+     *[1] = 362880
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 362880
+Stack pop success. Value = 10
+Stack push success. Value = 3628800
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 3628800
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 3628800
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 0
+data [0x603000001c34]
+    {
+     [0] = 676767(POISON_ELEM)
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 1
+data [0x603000001c34]
+    {
+     *[0] = 10
+     [1] = 676767(POISON_ELEM)
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack push success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
+	No errors in stack
+#############
+<------------
+capacity = 5
+size = 2
+data [0x603000001c34]
+    {
+     *[0] = 10
+     *[1] = 10
+     [2] = 676767(POISON_ELEM)
+     [3] = 676767(POISON_ELEM)
+     [4] = 676767(POISON_ELEM)
+    }
+------------>
+
+Stack dump success
+Stack pop success. Value = 10
+Stack pop success. Value = 10
+#############
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -370,7 +2296,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 18
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -387,9 +2313,9 @@ data [0x603000001c34]
 ------------>
 
 Stack dump success
-Stack push success. Value = 1
+Stack push success. Value = 3628800
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -397,7 +2323,7 @@ capacity = 5
 size = 1
 data [0x603000001c34]
     {
-     *[0] = 1
+     *[0] = 3628800
      [1] = 676767(POISON_ELEM)
      [2] = 676767(POISON_ELEM)
      [3] = 676767(POISON_ELEM)
@@ -406,9 +2332,9 @@ data [0x603000001c34]
 ------------>
 
 Stack dump success
-Stack pop success. Value = 1
+Stack pop success. Value = 3628800
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -426,7 +2352,7 @@ data [0x603000001c34]
 
 Stack dump success
 #############
-Errors in stack at (stack_errors_print)stack.cpp:69 :
+Errors in stack at (stack_errors_print)stack.cpp:626 :
 	No errors in stack
 #############
 <------------
@@ -444,7 +2370,7 @@ data [0x603000001c34]
 
 Stack dump success
 #############
-Errors in stack at (stack_errors_print)stack.cpp:80 :
+Errors in stack at (stack_errors_print)stack.cpp:635 :
 	No errors in stack
 #############
 <------------
