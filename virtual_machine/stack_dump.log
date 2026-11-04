@@ -1,6 +1,6 @@
 Stack init success
 #############
-Errors in stack at (stack_errors_print)stack.cpp:605 :
+Errors in stack at (stack_errors_print)stack.cpp:601 :
 	No errors in stack
 #############
 <------------
@@ -18,10 +18,9 @@ data [0x603000001c34]
 
 Stack dump success
 Stack init success
-Stack status print success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -40,7 +39,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -59,7 +58,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 0
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -78,7 +77,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -99,7 +98,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 0
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -118,7 +117,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -137,7 +136,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 18
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -156,7 +155,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 0
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -175,7 +174,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -196,7 +195,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 0
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -215,7 +214,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -234,7 +233,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -253,7 +252,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -274,7 +273,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 1
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -293,7 +292,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -312,7 +311,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -331,7 +330,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -351,7 +350,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -370,7 +369,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -389,7 +388,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -410,7 +409,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 1
 Stack push success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -429,7 +428,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -448,7 +447,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -467,7 +466,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -488,7 +487,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 2
 Stack push success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -507,7 +506,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -526,7 +525,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -545,7 +544,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -565,7 +564,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -584,7 +583,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -603,7 +602,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -624,7 +623,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 2
 Stack push success. Value = 3
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -643,7 +642,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 3
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -662,7 +661,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 3
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -681,7 +680,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 2
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -702,7 +701,7 @@ Stack pop success. Value = 2
 Stack pop success. Value = 3
 Stack push success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -721,7 +720,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -740,7 +739,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 3
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -759,7 +758,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -779,7 +778,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 3
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -798,7 +797,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 3
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -817,7 +816,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -838,7 +837,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 3
 Stack push success. Value = 4
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -857,7 +856,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 4
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -876,7 +875,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 4
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -895,7 +894,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -916,7 +915,7 @@ Stack pop success. Value = 6
 Stack pop success. Value = 4
 Stack push success. Value = 24
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -935,7 +934,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 24
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -954,7 +953,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 4
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -973,7 +972,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -993,7 +992,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 4
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1012,7 +1011,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 4
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1031,7 +1030,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1052,7 +1051,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 4
 Stack push success. Value = 5
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1071,7 +1070,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 5
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1090,7 +1089,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 5
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1109,7 +1108,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 24
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1130,7 +1129,7 @@ Stack pop success. Value = 24
 Stack pop success. Value = 5
 Stack push success. Value = 120
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1149,7 +1148,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 120
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1168,7 +1167,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 5
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1187,7 +1186,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1207,7 +1206,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 5
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1226,7 +1225,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 5
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1245,7 +1244,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1266,7 +1265,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 5
 Stack push success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1285,7 +1284,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1304,7 +1303,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1323,7 +1322,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 120
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1344,7 +1343,7 @@ Stack pop success. Value = 120
 Stack pop success. Value = 6
 Stack push success. Value = 720
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1363,7 +1362,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 720
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1382,7 +1381,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1401,7 +1400,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1421,7 +1420,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1440,7 +1439,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 6
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1459,7 +1458,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1480,7 +1479,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 6
 Stack push success. Value = 7
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1499,7 +1498,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 7
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1518,7 +1517,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 7
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1537,7 +1536,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 720
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1558,7 +1557,7 @@ Stack pop success. Value = 720
 Stack pop success. Value = 7
 Stack push success. Value = 5040
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1577,7 +1576,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 5040
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1596,7 +1595,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 7
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1615,7 +1614,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1635,7 +1634,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 7
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1654,7 +1653,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 7
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1673,7 +1672,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1694,7 +1693,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 7
 Stack push success. Value = 8
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1713,7 +1712,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 8
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1732,7 +1731,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 8
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1751,7 +1750,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 5040
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1772,7 +1771,7 @@ Stack pop success. Value = 5040
 Stack pop success. Value = 8
 Stack push success. Value = 40320
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1791,7 +1790,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 40320
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1810,7 +1809,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 8
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1829,7 +1828,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1849,7 +1848,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 8
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1868,7 +1867,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 8
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1887,7 +1886,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1908,7 +1907,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 8
 Stack push success. Value = 9
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1927,7 +1926,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 9
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1946,7 +1945,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 9
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1965,7 +1964,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 40320
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -1986,7 +1985,7 @@ Stack pop success. Value = 40320
 Stack pop success. Value = 9
 Stack push success. Value = 362880
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2005,7 +2004,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 362880
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2024,7 +2023,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 9
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2043,7 +2042,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2063,7 +2062,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 9
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2082,7 +2081,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 9
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2101,7 +2100,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 1
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2122,7 +2121,7 @@ Stack pop success. Value = 1
 Stack pop success. Value = 9
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2141,7 +2140,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2160,7 +2159,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2179,7 +2178,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 362880
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2200,7 +2199,7 @@ Stack pop success. Value = 362880
 Stack pop success. Value = 10
 Stack push success. Value = 3628800
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2219,7 +2218,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 3628800
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2238,7 +2237,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2257,7 +2256,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2277,7 +2276,7 @@ Stack dump success
 Stack pop success. Value = 10
 Stack pop success. Value = 10
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2296,7 +2295,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 18
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2315,7 +2314,7 @@ data [0x603000001c34]
 Stack dump success
 Stack push success. Value = 3628800
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2334,7 +2333,7 @@ data [0x603000001c34]
 Stack dump success
 Stack pop success. Value = 3628800
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2352,7 +2351,7 @@ data [0x603000001c34]
 
 Stack dump success
 #############
-Errors in stack at (stack_errors_print)stack.cpp:626 :
+Errors in stack at (stack_errors_print)stack.cpp:622 :
 	No errors in stack
 #############
 <------------
@@ -2370,7 +2369,7 @@ data [0x603000001c34]
 
 Stack dump success
 #############
-Errors in stack at (stack_errors_print)stack.cpp:635 :
+Errors in stack at (stack_errors_print)stack.cpp:631 :
 	No errors in stack
 #############
 <------------
@@ -2389,4 +2388,3 @@ data [0x603000001c34]
 Stack dump success
 Stack destroy success
 Stack destroy success
-Stack status print success

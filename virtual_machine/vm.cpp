@@ -1,7 +1,6 @@
 #ifndef VM_CPP
 #define VM_CPP
 
-//#include "stack.cpp"
 #include "vm.hpp"
 
 //----------------------------------------------------------------------------
@@ -588,9 +587,6 @@ vm_status print_vm_ram(processor* proc, int line)
 //----------------------------------------------------------------------------
 vm_status proc_init(processor* proc, uint8_t* bite_code_arr, int* ram_arr, stack_lifo_t* stk, stack_lifo_t* ret)
 {
-    // stack_lifo_t stk = {};
-    // stack_lifo_t ret = {};
-
     proc -> prog_status = VM_SUCCESS;
     if (bite_code_arr) proc -> bite_code = bite_code_arr;
     proc -> bite_code_size = 0;
@@ -647,6 +643,27 @@ vm_status proc_destroy(processor* proc)
     free(proc -> ram);
 
     return VM_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+stk_error_codes_t stk_dump_init(void)
+{
+    if (file != NULL)
+    {
+        printf(RED "ERROR: Attempt to open opened file\n" CRESET);
+        return STK_DUMP_ERR;
+    }
+    else
+    {
+        file_init_default(STACK_DUMP_FILE,  "w");
+        if (file == NULL)
+        {
+            printf(RED "ERROR: the dump file is not opened\n" CRESET);
+            return STK_DUMP_ERR;
+        }
+    }
+
+    return STK_NO_ERROR;
 }
 
 //----------------------------------------------------------------------------

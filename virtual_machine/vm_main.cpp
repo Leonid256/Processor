@@ -8,22 +8,8 @@
 //----------------------------------------------------------------------------
 int main()
 {
-    if (file != NULL)
-    {
-        printf(RED "ERROR: Attempt to open opened file\n" CRESET);
-        return STK_DUMP_ERR;
-    }
-    else
-    {
-        file_init_default(STACK_DUMP_FILE,  "w");
-        if (file == NULL)
-        {
-            printf(RED "ERROR: the dump file is not opened\n" CRESET);
-            return STK_DUMP_ERR;
-        }
-    }
+    stk_dump_init();
 
-    stack_status stk_status = SUCCESS;
     stack_lifo_t stk = {};
     stack_lifo_t ret = {};
 
@@ -36,7 +22,6 @@ int main()
 
     proc_init(&proc, bite_code_arr, ram_arr, &stk, &ret);
 
-    PRINT_STACK_STATUS(stk_status);
     PRINT_STATUS_VM(&proc);
 
     proc.prog_status = txt_to_mass(FILE_IN, &proc);   //перевод многострочного файла в единый массив команд
@@ -45,7 +30,6 @@ int main()
 
     proc_destroy(&proc);
 
-    PRINT_STACK_STATUS(stk_status);
     PRINT_STATUS_VM(&proc);
     printf(BLU "End of program\n" CRESET);
 
